@@ -1,96 +1,108 @@
-import React from 'react';
-import Background from '../assets/images/Background.jpg'
-import GoogleIcon from '../Components/Icons/GoogleIcon';
-import FbIcon from '../Components/Icons/FbIcon';
+import { Button, Checkbox, Form, Input } from 'antd';
+import { Link } from 'react-router';
+import Background from '../assets/images/Background.jpg';
+
+const Login = () => {
+  type FieldType = {
+    username?: string;
+    password?: string;
+    remember?: boolean;
+  };
 
 
-function Login() {
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      {/* Container */}
-      <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden max-w-7xl w-full h-[96vh] min-h-[750px]">
-        {/* Layer trái */}
-        <div className="w-full md:w-1/2 p-12 space-y-8 border-r-2 border-gray-100">
-          <div className="">
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Đăng nhập</h1>
-            <p className="text-gray-500">Vui lòng nhập thông tin để truy cập vào tài khoản!</p>
+      <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl overflow-hidden max-w-7xl w-full h-[96vh]">
+        {/* Form Section */}
+        <Form
+
+          name="login"
+          initialValues={{ remember: true }}
+          autoComplete="off"
+          className="w-full md:w-1/2 p-12 space-y-6 flex flex-col justify-center"
+          layout="vertical"
+        >
+          <h1 className="text-center mb-6 text-xl font-semibold text-gray-700">
+            Vui lòng nhập thông tin để truy cập vào tài khoản!
+          </h1>
+
+          <Form.Item<FieldType>
+            label="Username"
+            name="username"
+
+            rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập!' }]}
+          >
+            <Input tabIndex={1} placeholder="Tên đăng nhập" size="large" />
+          </Form.Item>
+
+          <Form.Item<FieldType>
+            name="password"
+            label="Password"
+            rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
+            style={{ marginBottom: "2rem" }}
+          >
+            <Input.Password placeholder="Mật khẩu" size="large" />
+          </Form.Item>
+
+          <div className="flex items-center justify-between mb-6">
+            <Form.Item<FieldType>
+              name="remember"
+              valuePropName="checked"
+              noStyle
+            >
+              <Checkbox>Ghi nhớ tôi</Checkbox>
+            </Form.Item>
+            <Link to="#" className="text-blue-600 hover:text-blue-500">
+              Quên mật khẩu?
+            </Link>
           </div>
 
-          <form className="space-y-6">
-            <div>
-              <label className="block text-gray-700 mb-2">Email hoặc tên người dùng</label>
-              <input
-                type="text"
-                placeholder="Nhập email hoặc username"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 mb-2">Mật khẩu</label>
-              <input
-                type="password"
-                placeholder="Nhập mật khẩu"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <label className="ml-2 text-gray-600">Nhớ mật khẩu</label>
-              </div>
-              <a href="#" className=" text-blue-600 hover:text-blue-500">Quên mật khẩu?</a>
-            </div>
-
-            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              size="large"
+              className="w-full"
+            >
               Đăng nhập
-            </button>
-          </form>
+            </Button>
+          </Form.Item>
 
-          <div className="flex items-center justify-center w-full my-4">
-            <div className="flex-grow h-px bg-gray-300"></div>
-            <span className="px-4 text-gray-500 text-lg font-medium">Or</span>
-            <div className="flex-grow h-px bg-gray-300"></div>
+          <div className="flex items-center justify-center my-6">
+            <div className="flex-grow h-px bg-gray-300" />
+            <span className="px-4 text-gray-500">Hoặc</span>
+            <div className="flex-grow h-px bg-gray-300" />
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-6"> 
-                          <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200 w-full h-full">
-                              <span className="text-lg flex items-center justify-center gap-2 flex-1 text-center">
-                              <GoogleIcon /> 
-                              <span>Đăng nhập bằng Google</span> 
-                              </span>
-                          </button>
-                          <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200 w-full h-full">
-                              <span className="text-lg flex items-center justify-center gap-2 flex-1 text-center">
-                              <FbIcon /> 
-                              <span>Đăng nhập bằng Facebook</span>
-                              </span>
-                          </button>
-                      </div>
-
-          <div className="flex items-center justify-center gap-2 ">
-            <a className='text-lg'>Chưa có tài khoản?  </a>
-            <a href="/signup" className=" text-blue-500 text-lg hover:text-blue-700">Đăng ký</a>
+          <div className="grid grid-cols-2 gap-4">
+            <Button size="large">
+              Đăng nhập bằng Google
+            </Button>
+            <Button size="large" className="border-gray-300">
+              Đăng nhập bằng Facebook
+            </Button>
           </div>
 
-        </div>
+          <div className="text-center mt-6">
+            <span className="text-gray-600">Chưa có tài khoản? </span>
+            <Link to="/signup" className="text-blue-500 hover:text-blue-700">
+              Đăng ký
+            </Link>
+          </div>
+        </Form>
 
-        {/* Layer phải */}
-        <div className="w-full md:w-1/2 p-12 relative ">
-        <img
+        {/* Image Section */}
+        <div className="hidden md:block w-1/2 p-12">
+          <img
             src={Background}
             alt="Login Background"
-            className="absolute inset-0 w-full h-full object-cover"
-        />
+            className="w-full h-full object-cover rounded-lg"
+          />
         </div>
-
       </div>
     </div>
   );
-}
+};
 
 export default Login;
