@@ -1,5 +1,8 @@
 import React from 'react';
 import Background from '../assets/images/Background.jpg'
+import GoogleIcon from '../Components/Icons/GoogleIcon';
+import FbIcon from '../Components/Icons/FbIcon';
+
 
 function Login() {
   return (
@@ -9,7 +12,7 @@ function Login() {
         {/* Layer trái */}
         <div className="w-full md:w-1/2 p-12 space-y-8 border-r-2 border-gray-100">
           <div className="">
-            
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">Đăng nhập</h1>
             <p className="text-gray-500">Vui lòng nhập thông tin để truy cập vào tài khoản!</p>
           </div>
 
@@ -54,14 +57,20 @@ function Login() {
             <div className="flex-grow h-px bg-gray-300"></div>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200">
-              <span className="text-lg">Đăng nhập bằng Google</span>
-            </button>
-            <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200">
-              <span className="text-lg">Đăng nhập bằng Facebook</span>
-            </button>
-          </div>
+          <div className="mt-6 grid grid-cols-2 gap-6"> 
+                          <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200 w-full h-full">
+                              <span className="text-lg flex items-center justify-center gap-2 flex-1 text-center">
+                              <GoogleIcon /> 
+                              <span>Đăng nhập bằng Google</span> 
+                              </span>
+                          </button>
+                          <button className="flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-200 w-full h-full">
+                              <span className="text-lg flex items-center justify-center gap-2 flex-1 text-center">
+                              <FbIcon /> 
+                              <span>Đăng nhập bằng Facebook</span>
+                              </span>
+                          </button>
+                      </div>
 
           <div className="flex items-center justify-center gap-2 ">
             <a className='text-lg'>Chưa có tài khoản?  </a>
@@ -75,7 +84,7 @@ function Login() {
         <img
             src={Background}
             alt="Login Background"
-            className="w-full h-full object-contain rounded-lg"
+            className="absolute inset-0 w-full h-full object-cover"
         />
         </div>
 
