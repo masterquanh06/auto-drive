@@ -16,9 +16,9 @@ export default function Header() {
                     <a className="hover:text-blue-500 cursor-pointer flex items-center">About</a>
                     <a className="hover:text-blue-500 cursor-pointer flex items-center">Contact</a>
                     <CartIcon/>
-                    <button className="text-gray-700 hover:bg-blue-600 px-4 py-2 rounded-lg transition">
+                    <a href="/login"  className="text-gray-700 hover:bg-blue-600 px-4 py-2 rounded-lg transition">
                         Sign In
-                    </button>
+                    </a>
                  
                     
                 </ul>
