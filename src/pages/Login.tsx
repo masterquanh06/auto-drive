@@ -1,8 +1,8 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router';
 import Background from '../assets/images/Background.jpg';
-import FbIcon from '../components/Icons/FbIcon';
-import GoogleIcon from '../components/Icons/GoogleIcon';
+import FbIcon from '../assets/images/FB_Icon.png';
+import GoogleIcon from '../assets/images/GG_Icon.png';
 
 const Login = () => {
   type FieldType = {
@@ -76,10 +76,20 @@ const Login = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <Button size="large" className="border-gray-300">
-              <GoogleIcon /> Đăng nhập bằng Google
+              <img
+                src={GoogleIcon}
+                alt="Google Icon"
+                style={{ width: '20px', height: '20px', marginRight: '8px' }}
+              />
+              Đăng nhập bằng Google
             </Button>
             <Button size="large" className="border-gray-300">
-              <FbIcon />Đăng nhập bằng Facebook
+              <img
+                src={FbIcon}
+                alt="Facebook Icon"
+                style={{ width: '20px', height: '20px', marginRight: '8px' }}
+              />
+              Đăng nhập bằng Facebook
             </Button>
           </div>
 
