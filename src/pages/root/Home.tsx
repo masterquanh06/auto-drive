@@ -1,12 +1,10 @@
-import Background from '../assets/images/Background.jpg';
-import Background_RR from '../assets/images/Background_RR.jpg';
-import LogoAudi from '../assets/images/LogoAudi.jpg';
-import LogoBMW from '../assets/images/LogoBMW.jpg';
-import LogoKia from '../assets/images/LogoKia.jpg';
-import LogoMercedes from '../assets/images/LogoMercedes.jpg';
-import LogoTOYOTA from '../assets/images/LogoTOYOTA.jpg';
-
-
+import Background from '../../assets/images/Background.jpg';
+import Background_RR from '../../assets/images/Background_RR.jpg';
+import LogoAudi from '../../assets/images/LogoAudi.jpg';
+import LogoBMW from '../../assets/images/LogoBMW.jpg';
+import LogoKia from '../../assets/images/LogoKia.jpg';
+import LogoMercedes from '../../assets/images/LogoMercedes.jpg';
+import LogoTOYOTA from '../../assets/images/LogoTOYOTA.jpg';
 
 function Home() {
     return (

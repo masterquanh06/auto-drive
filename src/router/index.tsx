@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import AuthLayout from "../layouts/AuthLayout";
 import MainLayout from "../layouts/MainLayout";
-import Login from "../pages/Login";
-import SignUp from "../pages/SignUp";
-import Home from "../pages/Home";
+
+import Login from "../pages/auth/Login";
+import SignUp from "../pages/auth/SignUp";
+import Home from "../pages/root/Home";
 
 
 export default createBrowserRouter([
@@ -17,7 +18,8 @@ export default createBrowserRouter([
             {
                 element: <SignUp />,
                 path: '/signup'
-            }
+            },
+
         ]
     },
     {
