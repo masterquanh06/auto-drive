@@ -8,7 +8,7 @@ export default function Header() {
     <>
         <div className="container mx-auto flex justify-between items-center">
                 {/* Logo bên trái */}
-                <div className="text-xl font-bold text-gray-800">Boxcars</div>
+                <div className="text-xl font-bold text-gray-800">AutoDrive.</div>
                 {/* Danh sách tab bên phải */}
                 <ul className="flex space-x-6 text-gray-700 font-semibold items-center">
                     <a className="hover:text-blue-500 cursor-pointer flex items-center">Home</a>

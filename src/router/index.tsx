@@ -1,12 +1,10 @@
-import { createBrowserRouter, Outlet } from "react-router";
+import { createBrowserRouter } from "react-router";
+import AuthLayout from "../layouts/AuthLayout";
+import MainLayout from "../layouts/MainLayout";
 import Login from "../pages/Login";
-import Home from "../pages/Home";
 import SignUp from "../pages/SignUp";
+import Home from "../pages/Home";
 
-// Fixed AuthLayout component with proper return statement
-const AuthLayout = () => {
-    return <Outlet />;  // Added return and fixed JSX syntax
-}
 
 export default createBrowserRouter([
     {
@@ -17,12 +15,17 @@ export default createBrowserRouter([
                 path: '/login'
             },
             {
-                element: <Home />,
-                path: '/'
-            },
-            {
                 element: <SignUp />,
                 path: '/signup'
+            }
+        ]
+    },
+    {
+        element: <MainLayout />,
+        children: [
+            {
+                element: <Home />,
+                path: '/'
             }
         ]
     }

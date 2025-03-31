@@ -1,14 +1,10 @@
-import React from 'react';
-import Header from '../Components/Header';
-import Footer from '../Components/Footer';
-import Background_RR from '../assets/images/Background_RR.jpg'
-import LogoTOYOTA from '../assets/images/LogoTOYOTA.jpg'
-import LogoMercedes from '../assets/images/LogoMercedes.jpg'
-import LogoBMW from '../assets/images/LogoBMW.jpg'
-import LogoKia from '../assets/images/LogoKia.jpg'
-import LogoAudi from '../assets/images/LogoAudi.jpg'
-import User from '../assets/images/user.jpg'
-import Background from '../assets/images/Background.jpg'
+import Background from '../assets/images/Background.jpg';
+import Background_RR from '../assets/images/Background_RR.jpg';
+import LogoAudi from '../assets/images/LogoAudi.jpg';
+import LogoBMW from '../assets/images/LogoBMW.jpg';
+import LogoKia from '../assets/images/LogoKia.jpg';
+import LogoMercedes from '../assets/images/LogoMercedes.jpg';
+import LogoTOYOTA from '../assets/images/LogoTOYOTA.jpg';
 
 
 
@@ -16,7 +12,7 @@ function Home() {
     return (
         <nav className="bg-white shadow-md p-4 relative z-10">
             <div className='relative '>
-                <Header />
+
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat  -z-10"
                     style={{ backgroundImage: `url(${Background})` }}
@@ -140,7 +136,7 @@ function Home() {
 
                     <div className="w-full flex flex-col md:flex-row items-center p-6 rounded-lg shadow-md mt-8">
                         <div className="md:w-2/5 w-full flex justify-center">
-                            <img src={User} alt="Customer" className="w-52 h-52 rounded-full shadow-lg object-cover" />
+                            <img src={LogoTOYOTA} alt="Customer" className="w-52 h-52 rounded-full shadow-lg object-cover" />
                         </div>
                         <div className=" bg-auto md:w-3/5 w-full p-6">
                             <h3 className="text-xl font-bold mb-2">4.9/5 ⭐</h3>
@@ -194,7 +190,6 @@ function Home() {
                 </div>
             </section>
             {/* Phần end */}
-            <Footer />
         </nav>
 
 

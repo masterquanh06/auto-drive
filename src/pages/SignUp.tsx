@@ -15,23 +15,23 @@ const Register = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Form Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gradient-to-r from-violet-200 to-violet-400">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gradient-to-r from-violet-200 to-violet-300">
         <Form
           name="register"
           initialValues={{ remember: true }}
           autoComplete="off"
-          className="w-full max-w-md"  
+          className="w-full max-w-md"
           layout="vertical"
         >
 
-          <div className="text-center mb-4"> 
+          <div className="text-center mb-4">
             <h1 className="text-xl md:text-2xl font-semibold text-gray-700">
               Tạo tài khoản
             </h1>
             <p className="text-sm md:text-base text-gray-600">Vui lòng điền đầy đủ thông tin!</p>
           </div>
 
-          
+
           <Form.Item<FieldType>
             label={<span className="text-gray-700 text-sm">Email</span>}
             name="email"
@@ -39,7 +39,7 @@ const Register = () => {
               { required: true, message: 'Vui lòng nhập email!' },
               { type: 'email', message: 'Email không hợp lệ!' }
             ]}
-            className="mb-3"  
+            className="mb-3"
           >
             <Input placeholder="Nhập email" size="middle" />
           </Form.Item>
@@ -91,16 +91,16 @@ const Register = () => {
                   value ? Promise.resolve() : Promise.reject(new Error('Bạn cần đồng ý với điều khoản!')),
               },
             ]}
-            className="mb-4" 
+            className="mb-4"
           >
             <Checkbox className="text-sm">Tôi đồng ý với điều khoản và dịch vụ</Checkbox>
           </Form.Item>
 
-          <Form.Item className="mb-4"> 
+          <Form.Item className="mb-4">
             <Button
               type="primary"
               htmlType="submit"
-              size="large"  
+              size="large"
               className="w-full"
             >
               Đăng ký
