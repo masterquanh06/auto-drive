@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 
 import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
+import Listings from "../pages/listCar/Listings";
 import Home from "../pages/root/Home";
 
 
@@ -19,7 +20,6 @@ export default createBrowserRouter([
                 element: <SignUp />,
                 path: '/signup'
             },
-
         ]
     },
     {
@@ -27,7 +27,11 @@ export default createBrowserRouter([
         children: [
             {
                 element: <Home />,
-                path: '/'
+                path: '/',
+            },
+            {
+                element: <Listings />,
+                path: '/listings'
             }
         ]
     }
