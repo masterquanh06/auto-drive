@@ -32,7 +32,15 @@ export default createBrowserRouter([
             {
                 element: <Listings />,
                 path: '/listings'
-            }
+            },
+            {
+                element: <Listings />,
+                path: '/about'
+            },
+            {
+                element: <Listings />,
+                path: '/contact'
+            },
         ]
     }
 ]);
