@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import CartIcon from "./icons/CartIcon";
 import DeleteIcon from "./icons/DeleteIcon";
-import { useState } from "react";
 import MenuIcon from "./icons/MenuIcon";
 
 export default function Header() {
@@ -60,9 +60,8 @@ export default function Header() {
         </div>
       </div>
       <div
-        className={`fixed top-0 right-0 w-70 h-full bg-white  p-4 px-8 z-50 transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform md:hidden shadow-lg overflow-y-auto`}
+        className={`fixed top-0 right-0 w-70 h-full bg-white  p-4 px-8 z-50 transform ${isOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform md:hidden shadow-lg overflow-y-auto`}
       >
         <button
           className="absolute top-4 right-4 cursor-pointer hover:bg-emerald-light-hover rounded-2xl"
