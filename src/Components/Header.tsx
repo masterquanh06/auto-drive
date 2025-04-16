@@ -1,8 +1,8 @@
 
+import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import CartIcon from "./Icons/CartIcon";
 import DeleteIcon from "./Icons/DeleteIcon";
-import { useState } from "react";
 import MenuIcon from "./Icons/MenuIcon";
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className=" w-full bg-gradient-to-br from-gray-200 to-sky-100 fixed bg-transparent mx-auto flex justify-between items-center px-2 py-1.5">
+    <div className=" w-full bg-gradient-to-br from-gray-200 to-sky-100 fixed bg-transparent mx-auto flex justify-between items-center px-2 py-3">
       <div className="text-xl font-bold text-gray-800">AutoDrive</div>
 
       <div className="flex gap-6 max-md:hidden  font-semibold items-center">
