@@ -1,8 +1,9 @@
-import { useState } from "react";
+
 import { Link, NavLink } from "react-router";
-import CartIcon from "./icons/CartIcon";
-import DeleteIcon from "./icons/DeleteIcon";
-import MenuIcon from "./icons/MenuIcon";
+import CartIcon from "./Icons/CartIcon";
+import DeleteIcon from "./Icons/DeleteIcon";
+import { useState } from "react";
+import MenuIcon from "./Icons/MenuIcon";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

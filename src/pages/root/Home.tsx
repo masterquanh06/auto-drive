@@ -1,4 +1,3 @@
-import { Button, Input } from "antd";
 import Background_RR from "../../assets/images/Background_RR.jpg";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
 import LogoAudi from "../../assets/images/LogoAudi.jpg";
@@ -6,6 +5,23 @@ import LogoBMW from "../../assets/images/LogoBMW.jpg";
 import LogoKia from "../../assets/images/LogoKia.jpg";
 import LogoMercedes from "../../assets/images/LogoMercedes.jpg";
 import LogoTOYOTA from "../../assets/images/LogoTOYOTA.jpg";
+import SuvIcon from "../../Components/Icons/SuvIcon";
+import SedanIcon from "../../Components/Icons/SedanIcon";
+import CoupeIcon from "../../Components/Icons/CoupeIcon";
+import HybridIcon from "../../Components/Icons/HybridIcon";
+import Transit_2021 from "../../assets/images/Ford_Transit_2021.png";
+import Ford_2023 from "../../assets/images/Ford_2023.png";
+import NewGLC from "../../assets/images/NewGLC.png";
+import Corolla from "../../assets/images/Corolla2023.png";
+import Audi from "../../assets/images/Audi_A6.png";
+import MilesIcon from "../../Components/Icons/MilesIcon";
+import FuelIcon from "../../Components/Icons/FuelIcon";
+import AutomaticIcon from "../../Components/Icons/AutomaticIcon";
+import ToyotaSP from "../../assets/images/ToyotaSP.jpg";
+import MercedesAMG from "../../assets/images/MercedesAMG.jpg";
+import BMW_M4 from "../../assets/images/BMW_M4.jpg";
+import { Button, Input } from "antd";
+import { Color } from "antd/es/color-picker";
 function Home() {
     return (
         <nav className=" bg-white shadow-md  relative z-10">
@@ -22,34 +38,41 @@ function Home() {
                             <br />
                             <span className="text-white  text-[16px]">Or Browser Featured Model</span>
                             <div className="mt-10 flex justify-center gap-4">
-                                <Button color="default" variant="filled" className="rounded-lg">
-                                    SUV
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                    <div className="flex items-center gap-2 ">
+                                        <SuvIcon />
+                                        <span> SUV</span>
+                                    </div>
                                 </Button>
-                                <Button color="default" variant="filled" className="rounded-lg">
-                                    Sedan
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                    <div className="flex items-center gap-2">
+                                        <SedanIcon />
+                                        <span>Sedan</span>
+                                    </div>
                                 </Button>
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99 }}>
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
                                     <div className="flex items-center gap-2">
 
                                         <svg width="27" height="35" viewBox="0 0 27 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="mask0_5_9" className="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="4" width="27" height="27">
-                                                <path d="M26.1406 4.34009H0.140625V30.3401H26.1406V4.34009Z" fill="white" />
-                                            </mask>
-                                            <g mask="url(#mask0_5_9)">
-                                                <path d="M25.2928 20.7314H24.445V16.4923C24.445 15.0897 23.3039 13.9488 21.9015 13.9488H19.1213L18.0054 10.6009C17.6585 9.56072 16.6888 8.86182 15.5923 8.86182C15.4603 8.86182 6.29445 8.86182 6.07538 8.86182C4.97007 8.86182 4.02772 9.57067 3.67774 10.5575H2.68411C1.28163 10.5575 0.140625 11.6985 0.140625 13.1009V16.4923C0.140625 17.8948 1.28163 19.0357 2.68411 19.0357H3.53195V20.7314H2.68411C2.2159 20.7314 1.83626 21.111 1.83626 21.5792C1.83626 22.0475 2.21585 22.4271 2.68411 22.4271C3.47812 22.4271 4.43093 22.4271 5.22759 22.4271C5.22759 24.297 6.74894 25.8184 8.61892 25.8184C10.4889 25.8184 12.0102 24.297 12.0102 22.4271H15.9667C15.9667 24.297 17.4881 25.8184 19.3581 25.8184C21.2281 25.8184 22.7494 24.297 22.7494 22.4271C23.5463 22.4271 24.4994 22.4271 25.2929 22.4271C25.7611 22.4271 26.1407 22.0475 26.1407 21.5792C26.1407 21.111 25.761 20.7314 25.2928 20.7314ZM3.53195 17.34H2.68411C2.21661 17.34 1.83626 16.9597 1.83626 16.4922V13.1009C1.83626 12.6334 2.21661 12.2531 2.68411 12.2531H3.53195C3.53195 12.7933 3.53195 16.8162 3.53195 17.34ZM12.0102 10.5575H13.4233H15.5923C15.9579 10.5575 16.2811 10.7904 16.3967 11.1371L17.3338 13.9487H12.0102V10.5575ZM5.22759 11.4052C5.22759 10.9377 5.60794 10.5574 6.07543 10.5574H10.3146V13.9487H5.22759V11.4052ZM8.61892 24.1227C7.68393 24.1227 6.92328 23.362 6.92328 22.427C6.92328 21.492 7.68393 20.7314 8.61892 20.7314C9.55393 20.7314 10.3146 21.492 10.3146 22.427C10.3146 23.362 9.55393 24.1227 8.61892 24.1227ZM19.358 24.1227C18.4231 24.1227 17.6624 23.362 17.6624 22.427C17.6624 21.492 18.4231 20.7314 19.358 20.7314C20.293 20.7314 21.0536 21.492 21.0536 22.427C21.0536 23.362 20.293 24.1227 19.358 24.1227ZM22.7493 20.7314H22.2931C21.7057 19.7187 20.6105 19.0357 19.358 19.0357C18.1056 19.0357 17.0103 19.7187 16.423 20.7314H11.5539C10.9666 19.7187 9.87135 19.0357 8.61892 19.0357C7.36644 19.0357 6.27119 19.7187 5.68386 20.7314H5.22764V18.1879V15.6444C6.61021 15.6444 20.9937 15.6444 21.9016 15.6444C22.369 15.6444 22.7494 16.0247 22.7494 16.4923L22.7493 20.7314Z" fill="white" />
-                                                <path d="M14.5552 17.3401H12.8595C12.3913 17.3401 12.0117 17.7197 12.0117 18.1879C12.0117 18.6561 12.3913 19.0357 12.8595 19.0357H14.5552C15.0234 19.0357 15.403 18.6562 15.403 18.1879C15.403 17.7197 15.0234 17.3401 14.5552 17.3401Z" fill="white" />
-                                            </g>
+                                            <path d="M21.2539 14.9025H20.3033C20.1963 14.9031 20.0903 14.8826 19.9914 14.8422C19.8923 14.8017 19.8023 14.7422 19.7264 14.6668L17.5651 12.5056C17.0322 11.9726 16.3986 11.5509 15.7011 11.265C15.0037 10.979 14.2564 10.8346 13.5027 10.84H6.62891C5.55147 10.84 4.51815 11.268 3.75629 12.0298C2.99442 12.7917 2.56641 13.8251 2.56641 14.9025V18.965C2.56641 19.6114 2.82322 20.2315 3.28034 20.6886C3.73745 21.1457 4.35744 21.4025 5.00391 21.4025C5.00391 22.1567 5.30352 22.88 5.83682 23.4133C6.37013 23.9466 7.09345 24.2462 7.84766 24.2462C8.60185 24.2462 9.32518 23.9466 9.85849 23.4133C10.3918 22.88 10.6914 22.1567 10.6914 21.4025H16.4602C16.55 22.0823 16.8838 22.7063 17.3995 23.1583C17.9152 23.6103 18.5775 23.8595 19.2633 23.8595C19.949 23.8595 20.6114 23.6103 21.127 23.1583C21.6428 22.7063 21.9766 22.0823 22.0664 21.4025H22.8789C23.5254 21.4025 24.1453 21.1457 24.6025 20.6886C25.0596 20.2315 25.3164 19.6114 25.3164 18.965C25.3164 17.8876 24.8884 16.8542 24.1265 16.0923C23.3646 15.3305 22.3314 14.9025 21.2539 14.9025ZM13.5433 12.465C14.0771 12.464 14.6059 12.5683 15.0995 12.7718C15.593 12.9754 16.0416 13.2742 16.4195 13.6512L17.6708 14.9025H7.63641C7.48499 14.9035 7.33628 14.8622 7.20708 14.7833C7.07787 14.7043 6.97329 14.5908 6.90516 14.4556L5.96266 12.5706C6.17814 12.502 6.40277 12.4664 6.62891 12.465H13.5433ZM4.19141 18.965V14.9025C4.19185 14.4091 4.34201 13.9275 4.62204 13.5212L5.43454 15.1462C5.63384 15.5608 5.94637 15.9104 6.33599 16.1548C6.72563 16.3993 7.17646 16.5284 7.63641 16.5275H12.3164V19.7775H10.407C10.1788 19.2915 9.81689 18.8805 9.36365 18.5926C8.91041 18.3047 8.38459 18.1518 7.84766 18.1518C7.31072 18.1518 6.78488 18.3047 6.33163 18.5926C5.8784 18.8805 5.5165 19.2915 5.28828 19.7775H5.00391C4.78842 19.7775 4.58176 19.6919 4.42938 19.5396C4.27701 19.3871 4.19141 19.1804 4.19141 18.965ZM7.84766 22.215C7.60661 22.215 7.37098 22.1435 7.17056 22.0096C6.97013 21.8757 6.81392 21.6853 6.72168 21.4626C6.62943 21.24 6.6053 20.9949 6.65232 20.7585C6.69935 20.522 6.81543 20.3049 6.98587 20.1344C7.15632 19.964 7.37348 19.848 7.60989 19.8009C7.8463 19.7539 8.09135 19.778 8.31405 19.8703C8.53675 19.9625 8.72711 20.1187 8.86101 20.3192C8.99491 20.5195 9.06641 20.7552 9.06641 20.9962C9.06641 21.3195 8.93801 21.6295 8.70944 21.858C8.48089 22.0866 8.17089 22.215 7.84766 22.215ZM19.2226 22.215C18.9816 22.215 18.746 22.1435 18.5455 22.0096C18.3451 21.8757 18.1889 21.6853 18.0967 21.4626C18.0044 21.24 17.9803 20.9949 18.0273 20.7585C18.0743 20.522 18.1904 20.3049 18.3609 20.1344C18.5313 19.964 18.7485 19.848 18.9849 19.8009C19.2213 19.7539 19.4663 19.778 19.6891 19.8703C19.9118 19.9625 20.1021 20.1187 20.236 20.3192C20.3699 20.5195 20.4414 20.7552 20.4414 20.9962C20.4414 21.3195 20.313 21.6295 20.0844 21.858C19.8559 22.0866 19.5459 22.215 19.2226 22.215ZM22.8789 19.7775H21.782C21.5538 19.2915 21.1919 18.8805 20.7386 18.5926C20.2854 18.3047 19.7596 18.1518 19.2226 18.1518C18.6857 18.1518 18.1599 18.3047 17.7067 18.5926C17.2534 18.8805 16.8915 19.2915 16.6633 19.7775H13.9414V16.5275H21.2539C21.5947 16.5293 21.9312 16.6025 22.2419 16.7425C22.5526 16.8825 22.8305 17.086 23.0576 17.34H22.8789C22.6634 17.34 22.4568 17.4256 22.3044 17.5779C22.152 17.7303 22.0664 17.937 22.0664 18.1525C22.0664 18.3679 22.152 18.5746 22.3044 18.7271C22.4568 18.8794 22.6634 18.965 22.8789 18.965H23.6914C23.6914 19.1804 23.6058 19.3871 23.4534 19.5396C23.301 19.6919 23.0944 19.7775 22.8789 19.7775Z" fill="white" />
                                         </svg>
+
 
                                     </div>
                                     <span className="text-white">Hatchback</span>
 
                                 </Button>
-                                <Button color="default" variant="filled" className="rounded-">
-                                    Coupe
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                    <div className="flex items-center gap-2">
+                                        <CoupeIcon />
+                                        <span>Coupe</span>
+                                    </div>
                                 </Button>
-                                <Button color="default" variant="filled" className="rounded-lg">
-                                    Hybird
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                    <div className="flex items-center gap-2">
+                                        <HybridIcon />
+                                        <span>Hybrid</span>
+                                    </div>
                                 </Button>
                             </div>
                         </div>
@@ -58,12 +81,14 @@ function Home() {
             </div>
 
             <section className="w-full py-12 ">
-                <div className="container mx-auto">
+                <div className="container mx-auto pl-10 pr-10">
                     <div className="flex justify-between items-center px-2">
                         <h2 className="text-xl font-bold text-gray-800 left-0 max-md:text-center">
                             Explore Our Premium Brands
                         </h2>
-                        <p>View All</p>
+                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                            View All
+                        </button>
                     </div>
                     <div className="grid grid-cols-6 max-lg:grid-cols-2 max-lg:pl-40 max-sm:pl-15 max-lg:gap-5 mt-6 w-full">
                         <div className="w-30 h-30"><img src={LogoTOYOTA} alt="Toyota" className="h-30 w-30 object-cover rounded-2xl" /></div>
@@ -73,7 +98,7 @@ function Home() {
                         <div className="w-30 h-30"><img src={LogoKia} alt="Kia" className="h-30 w-30 object-cover rounded-2xl" /></div>
                         <div className="w-30 h-30"><img src={LogoKia} alt="Kia" className="h-30 w-30 object-cover rounded-2xl" /></div>
                     </div>
-                    <div className="flex justify-between items-center mt-6 w-full  mx-auto">
+                    <div className="flex justify-between items-center mt-24 w-full  mx-auto">
                         <h3 className="text-3xl font-semibold text-gray-800">
                             Explore All Vehicles
                         </h3>
@@ -93,15 +118,243 @@ function Home() {
                         </span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6 max-w-6xl mx-auto">
-                        <div className="bg-white shadow-md p-4 rounded-lg">Box 1</div>
-                        <div className="bg-white shadow-md p-4 rounded-lg">Box 2</div>
-                        <div className="bg-white shadow-md p-4 rounded-lg">Box 3</div>
-                        <div className="bg-white shadow-md p-4 rounded-lg">Box 4</div>
-                        <div className="bg-white shadow-md p-4 rounded-lg">Box 5</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6 ">
+                        {/* Card 1 */}
+                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white mh-80">
+                            <span className="absolute top-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                                Great Price
+                            </span>
+                            <img
+                                src={Transit_2021}
+                                alt="Ford Transit"
+                                className="w-full h-[214px] object-cover"
+                            />
+                            <div className="absolute top-2 right-2 text-white">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 fill-white stroke-black"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M5 3v18l7-5 7 5V3z" />
+                                </svg>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold mb-1">Ford Transit – 2021</h3>
+                                <p className="text-sm text-gray-500 mb-3">
+                                    4.0 D5 PowerPulse Momentum 5dr AWD
+                                </p>
+                                <div className="flex justify-between text-sm text-gray-600 mb-2">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <MilesIcon />
+                                        <span>2500 Miles</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <FuelIcon />
+                                        <span>Diesel</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <AutomaticIcon />
+                                        <span>Manual</span>
+                                    </div>
+
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-xl font-bold">$22,000</span>
+                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
+                            <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                                Low Mileage
+                            </span>
+                            <img
+                                src={NewGLC}
+                                alt="New GLC"
+                                className="w-full h-[214px] object-cover"
+                            />
+                            <div className="absolute top-2 right-2 text-white">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 fill-white stroke-black"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M5 3v18l7-5 7 5V3z" />
+                                </svg>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold mb-1">New GLC – 2023</h3>
+                                <p className="text-sm text-gray-500 mb-3">
+                                    4.0 D5 PowerPulse Momentum 5dr AWD
+                                </p>
+                                <div className="flex justify-between text-sm text-gray-600 mb-2">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <MilesIcon />
+                                        <span>50 Miles</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <FuelIcon />
+                                        <span>Petrol</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <AutomaticIcon />
+                                        <span>Automatic</span>
+                                    </div>
+
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-xl font-bold">$95,000</span>
+                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Card 3 */}
+                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
+                            <img
+                                src={Audi}
+                                alt="Audi A6"
+                                className="w-full h-[214px] object-cover"
+                            />
+                            <div className="absolute top-2 right-2 text-white">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 fill-white stroke-black"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M5 3v18l7-5 7 5V3z" />
+                                </svg>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold mb-1">Audi A6 3.5 – New</h3>
+                                <p className="text-sm text-gray-500 mb-3">
+                                    3.5 D5 PowerPulse Momentum 5dr AWD
+                                </p>
+                                <div className="flex justify-between text-sm text-gray-600 mb-2">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <MilesIcon />
+                                        <span>100 Miles</span>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <FuelIcon />
+                                        <span>Petrol</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <AutomaticIcon />
+                                        <span>Automatic</span>
+                                    </div>
+
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-xl font-bold">$58,000</span>
+                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 4 */}
+                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
+                            <img
+                                src={Corolla}
+                                alt="Corolla Altis"
+                                className="w-full h-[214px] object-cover"
+                            />
+                            <div className="absolute top-2 right-2 text-white">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 fill-white stroke-black"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M5 3v18l7-5 7 5V3z" />
+                                </svg>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold mb-1">Corolla Altis – 2023</h3>
+                                <p className="text-sm text-gray-500 mb-3">
+                                    3.5 D5 PowerPulse Momentum 5dr AWD
+                                </p>
+                                <div className="flex justify-between  text-gray-600 mb-2 ">
+                                    <div className="flex flex-col items-center gap-1 ">
+                                        <MilesIcon />
+                                        <span>150 Miles</span>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <FuelIcon />
+                                        <span>Petrol</span>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <AutomaticIcon />
+                                        <span>CVT</span>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between items-center ">
+                                    <span className="text-xl font-bold">$45,000</span>
+                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 5 */}
+                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
+                            <img
+                                src={Ford_2023}
+                                alt="Ford Explorer 2023"
+                                className="w-full h-[214px] object-cover"
+                            />
+                            <div className="absolute top-2 right-2 text-white">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5 fill-white stroke-black"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M5 3v18l7-5 7 5V3z" />
+                                </svg>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold mb-1">Ford Explorer 2023</h3>
+                                <p className="text-sm text-gray-500 mb-3">
+                                    3.5 D5 PowerPulse Momentum 5dr AWD
+                                </p>
+                                <div className="flex justify-between text-sm text-gray-600 mb-2">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <MilesIcon />
+
+                                        <span>10 Miles</span>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <FuelIcon />
+                                        <span>Diesel</span>
+                                    </div>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <AutomaticIcon />
+                                        <span>Automatic</span>
+                                    </div>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-xl font-bold">$35,000</span>
+                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                        View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex justify-center space-x-4 mt-4">
+                    <div className="flex justify-center space-x-4 mt-10">
                         <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
                             &lt;
                         </button>
@@ -110,7 +363,7 @@ function Home() {
                         </button>
                     </div>
 
-                    <div className="container mx-auto flex flex-col md:flex-row items-center">
+                    <div className="container mx-auto flex flex-col md:flex-row items-center mt-10">
                         <div className="w-full md:w-1/2 flex justify-center pt-8">
                             <img
                                 src={Background_RR}
@@ -132,7 +385,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mt-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mt-18">
                         <div className="bg-white p-4 rounded-lg shadow-md">
                             <h3 className="text-xl font-bold">500+</h3>
                             <p className="text-gray-700">Lượng mua</p>
@@ -150,7 +403,7 @@ function Home() {
                             <p className="text-gray-700">Lượt trả góp</p>
                         </div>
                     </div>
-                    <div className="flex justify-between items-center mt-6 w-full  mx-auto">
+                    <div className="flex justify-between items-center mt-16 w-full  mx-auto">
                         <div className="text-3xl font-semibold text-gray-800">
                             Shop BoxCar Your Way
                         </div>
@@ -159,7 +412,7 @@ function Home() {
                         </button>
                     </div>
 
-                    <div className="flex space-x-6 mt-4">
+                    <div className="flex space-x-6 mt-6">
                         <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
                             New Cars For Sale
                         </span>
@@ -182,7 +435,7 @@ function Home() {
                         <div>Section 5</div>
                     </div>
 
-                    <div className="flex justify-between items-center mt-6 w-full  mx-auto">
+                    {/* <div className="flex justify-between items-center mt-12 w-full  mx-auto">
                         <div className="text-3xl font-semibold text-gray-800">
                             What Our Customers Say
                         </div>
@@ -191,7 +444,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className="w-full flex flex-col md:flex-row items-center p-6 rounded-lg shadow-md mt-8">
+                    <div className="w-full flex flex-col md:flex-row items-center p-6 rounded-lg shadow-md mt-10">
                         <div className="md:w-2/5 w-full flex justify-center">
                             <img
                                 src={LogoTOYOTA}
@@ -211,49 +464,49 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-center mt-6 w-full  mx-auto">
+                    <div className="flex justify-between items-center mt-12 w-full  mx-auto">
                         <div className="text-3xl font-semibold text-gray-800">
                             Latest Blog Post
                         </div>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
                             View All
                         </button>
-                    </div>
+                    </div> */}
 
                     <section className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-white shadow-md p-6 rounded-lg text-center">
+                        <div className="bg-white shadow-md rounded-lg text-center">
                             <img
-                                src="/images/toyota-supra.jpg"
+                                src={ToyotaSP}
                                 alt="Toyota Supra"
-                                className="w-full h-40 object-cover rounded-md"
+                                className="w-full h-80 object-cover rounded-md"
                             />
                             <h3 className="text-lg font-bold mt-4">Admin</h3>
                             <p className="text-gray-600">Ngày đăng: 01/01/2025</p>
-                            <h2 className="text-xl font-semibold text-gray-800 mt-2">
+                            <h2 className="text-xl font-semibold text-gray-800 mt-2 mb-6">
                                 Toyota Supra
                             </h2>
                         </div>
-                        <div className="bg-white shadow-md p-6 rounded-lg text-center">
+                        <div className="bg-white shadow-md rounded-lg text-center">
                             <img
-                                src="/images/mercedes-amg.jpg"
+                                src={MercedesAMG}
                                 alt="Mercedes AMG"
-                                className="w-full h-40 object-cover rounded-md"
+                                className="w-full h-80 object-cover rounded-md"
                             />
                             <h3 className="text-lg font-bold mt-4">Admin</h3>
                             <p className="text-gray-600">Ngày đăng: 02/01/2025</p>
-                            <h2 className="text-xl font-semibold text-gray-800 mt-2">
+                            <h2 className="text-xl font-semibold text-gray-800 mt-2 mb-6">
                                 Mercedes AMG
                             </h2>
                         </div>
-                        <div className="bg-white shadow-md p-6 rounded-lg text-center">
-                            <img
-                                src="/images/bmw-m4.jpg"
+                        <div className="bg-white shadow-md rounded-lg text-center">
+                            <img 
+                                src={BMW_M4}
                                 alt="BMW M4"
-                                className="w-full h-40 object-cover rounded-md"
+                                className="w-full h-80 object-cover rounded-md"
                             />
                             <h3 className="text-lg font-bold mt-4">Admin</h3>
                             <p className="text-gray-600">Ngày đăng: 03/01/2025</p>
-                            <h2 className="text-xl font-semibold text-gray-800 mt-2">
+                            <h2 className="text-xl font-semibold text-gray-800 mt-2 mb-6">
                                 BMW M4
                             </h2>
                         </div>
