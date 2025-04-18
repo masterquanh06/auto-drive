@@ -6,7 +6,7 @@ export default function MainLayout() {
     return (
         <div className="transition-colors duration-400 relative">
             <div className="flex flex-col min-h-screen">
-                <div className="z-1000 mb-10 w-full"> <Header /></div>
+                <div className="z-1000 w-full"> <Header /></div>
                 <main className="flex flex-col flex-1 ">
                     <Outlet />
                 </main>

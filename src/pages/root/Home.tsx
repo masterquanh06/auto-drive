@@ -86,7 +86,7 @@ function Home() {
         <nav className=" bg-white shadow-md  relative z-10">
 
             <div
-                className="w-full h-[900px] bg-cover bg-center bg-no-repeat -z-10"
+                className="w-full h-screen bg-cover bg-center bg-no-repeat -z-10"
                 style={{ backgroundImage: `url(${HomeBackGround})` }}
             >
                 <div className=" pt-24 py-6 relative z-10 pb-24">
@@ -202,7 +202,7 @@ function Home() {
                     <div className="flex space-x-4 mb-6">
                         <button
                             onClick={() => handleFilter("inStock")}
-                            className={`px-4 py-2 rounded-lg ${filter === "inStock"
+                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "inStock"
                                 ? "bg-blue-600 text-white"
                                 : "bg-gray-200 text-gray-800"
                                 } hover:bg-blue-500 hover:text-white transition`}
@@ -211,7 +211,7 @@ function Home() {
                         </button>
                         <button
                             onClick={() => handleFilter("newCars")}
-                            className={`px-4 py-2 rounded-lg ${filter === "newCars"
+                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "newCars"
                                 ? "bg-blue-600 text-white"
                                 : "bg-gray-200 text-gray-800"
                                 } hover:bg-blue-500 hover:text-white transition`}
@@ -220,10 +220,10 @@ function Home() {
                         </button>
                         <button
                             onClick={() => handleFilter("usedCars")}
-                            className={`px-4 py-2 rounded-lg ${filter === "usedCars"
+                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "usedCars"
                                 ? "bg-blue-600 text-white"
                                 : "bg-gray-200 text-gray-800"
-                                } hover:bg-blu e-500 hover:text-white transition`}
+                                } hover:bg-blue-500 hover:text-white transition`}
                         >
                             Used Cars
                         </button>
