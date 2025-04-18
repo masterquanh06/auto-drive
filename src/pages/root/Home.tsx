@@ -1,12 +1,14 @@
 import { Input } from "antd";
-import Audi from "../../assets/images/Audi_A6.png";
+import { useState } from "react";
+import Car3 from "../../assets/images/Audi_A6.png";
 import Background_RR from "../../assets/images/Background_RR.jpg";
 import Blog_1 from "../../assets/images/blog1.png";
 import Blog_2 from "../../assets/images/blog2.png";
 import Blog_3 from "../../assets/images/blog3.png";
-import Corolla from "../../assets/images/Corolla2023.png";
-import Ford_2023 from "../../assets/images/Ford_2023.png";
-import Transit_2021 from "../../assets/images/Ford_Transit_2021.png";
+import Car5 from "../../assets/images/BMW_3.jpg";
+import Car4 from "../../assets/images/Corolla2023.png";
+import Car1 from "../../assets/images/Ford_2023.png";
+import Car2 from "../../assets/images/Ford_Transit_2021.png";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
 import LogoAudi from "../../assets/images/logoAudi.png";
 import LogoBMW from "../../assets/images/logoBmw.png";
@@ -14,19 +16,72 @@ import LogoFord from "../../assets/images/logoFord.png";
 import LogoMer from "../../assets/images/logoMer.png";
 import LogoPeugeot from "../../assets/images/logoPeugeot.png";
 import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
-import NewGLC from "../../assets/images/NewGLC.png";
-import AutomaticIcon from "../../components/icons/AutomaticIcon";
 import CoupeIcon from "../../components/icons/CoupeIcon";
-import FuelIcon from "../../components/icons/FuelIcon";
 import HatchbackIcon from "../../components/icons/HatchbackIcon";
 import HybridIcon from "../../components/icons/HybridIcon";
-import MilesIcon from "../../components/icons/MilesIcon";
 import SedanIcon from "../../components/icons/SedanIcon";
 import SuvIcon from "../../components/icons/SuvIcon";
 import ViewAll from "../../components/icons/ViewAll";
 import ViewMore from "../../components/icons/ViewMore";
 function Home() {
+    const vehiclesData = [
+        {
+            id: 1,
+            name: "Ford Transit - 2021",
+            price: 22000,
+            image: Car1,
+            specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },
+            tag: "Great Price",
+            status: "used", // Xe đã qua sử dụng
+        },
+        {
+            id: 2,
+            name: "New GLC - 2023",
+            price: 95000,
+            image: Car2,
+            specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" },
+            tag: "Low Mileage",
+            status: "new", // Xe mới
+        },
+        {
+            id: 3,
+            name: "Audi A6 3.5 - New",
+            price: 58000,
+            image: Car3,
+            specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" },
+            status: "new", // Xe mới
+        },
+        {
+            id: 4,
+            name: "Corolla Altis - 2023",
+            price: 45000,
+            image: Car4,
+            specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },
+            status: "used", // Xe đã qua sử dụng
+        },
+        {
+            id: 5,
+            name: "Ford Explorer 2023",
+            price: 35000,
+            image: Car5,
+            specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
+            tag: "Great Price",
+            status: "new", // Xe mới
+        },
+    ];
+    const [filter, setFilter] = useState("inStock"); // Mặc định là "In Stock"
+    const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
 
+    const handleFilter = (status: string) => {
+        setFilter(status);
+        if (status === "inStock") {
+            setFilteredVehicles(vehiclesData); // Hiển thị tất cả xe
+        } else if (status === "newCars") {
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "new")); // Chỉ xe mới
+        } else if (status === "usedCars") {
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "used")); // Chỉ xe đã qua sử dụng
+        }
+    };
     return (
         <nav className=" bg-white shadow-md  relative z-10">
 
@@ -136,258 +191,86 @@ function Home() {
 
                         </div>
                     </div>
-                    <div className="flex justify-between items-center mt-24 w-full  mx-auto">
+                    <div className="flex justify-between items-center mt-24 w-full mx-auto mb-5">
                         <h3 className="text-3xl font-semibold text-gray-800">
                             Explore All Vehicles
                         </h3>
 
                         <ViewMore />
                     </div>
-                    <div className="flex space-x-6 mt-4">
-                        <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
+                    {/* Tabs lọc */}
+                    <div className="flex space-x-4 mb-6">
+                        <button
+                            onClick={() => handleFilter("inStock")}
+                            className={`px-4 py-2 rounded-lg ${filter === "inStock"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 text-gray-800"
+                                } hover:bg-blue-500 hover:text-white transition`}
+                        >
                             In Stock
-                        </span>
-                        <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
+                        </button>
+                        <button
+                            onClick={() => handleFilter("newCars")}
+                            className={`px-4 py-2 rounded-lg ${filter === "newCars"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 text-gray-800"
+                                } hover:bg-blue-500 hover:text-white transition`}
+                        >
                             New Cars
-                        </span>
-                        <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
+                        </button>
+                        <button
+                            onClick={() => handleFilter("usedCars")}
+                            className={`px-4 py-2 rounded-lg ${filter === "usedCars"
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-200 text-gray-800"
+                                } hover:bg-blu e-500 hover:text-white transition`}
+                        >
                             Used Cars
-                        </span>
+                        </button>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6 ">
-                        {/* Card 1 */}
-                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white mh-80">
-                            <span className="absolute top-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
-                                Great Price
-                            </span>
-                            <img
-                                src={Transit_2021}
-                                alt="Ford Transit"
-                                className="w-full h-[214px] object-cover"
-                            />
-
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold mb-1">Ford Transit – 2021</h3>
-                                <p className="text-sm text-gray-500 mb-3">
-                                    4.0 D5 PowerPulse Momentum 5dr AWD
-                                </p>
-                                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                                    <div className="flex flex-col items-center gap-1">
-                                        <MilesIcon />
-                                        <span>2500 Miles</span>
+                    {/* Danh sách xe */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        {filteredVehicles.map((vehicle) => (
+                            <div
+                                key={vehicle.id}
+                                className="bg-white rounded-lg border border-gray-200 overflow-hidden relative"
+                            >
+                                {vehicle.tag && (
+                                    <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
+                                        {vehicle.tag}
+                                    </span>
+                                )}
+                                <img
+                                    src={vehicle.image}
+                                    alt={vehicle.name}
+                                    className="w-full h-48 object-cover"
+                                />
+                                <div className="p-4">
+                                    <h3 className="text-lg font-semibold text-gray-800">
+                                        {vehicle.name}
+                                    </h3>
+                                    <p className="text-xl font-bold text-blue-600">
+                                        ${vehicle.price.toLocaleString()}
+                                    </p>
+                                    <div className="flex justify-between text-sm text-gray-600 mt-2">
+                                        <span>{vehicle.specs.mileage}</span>
+                                        <span>{vehicle.specs.fuel}</span>
+                                        <span>{vehicle.specs.transmission}</span>
                                     </div>
-
-                                    <div className="flex flex-col items-center gap-1">
-                                        <FuelIcon />
-                                        <span>Diesel</span>
-                                    </div>
-
-                                    <div className="flex flex-col items-center gap-1">
-                                        <AutomaticIcon />
-                                        <span>Manual</span>
-                                    </div>
-
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-xl font-bold">$22,000</span>
-                                    <a href="#" className="text-blue-600 text-sm hover:underline">
+                                    <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
                                         View Details
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
-                            <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-md">
-                                Low Mileage
-                            </span>
-                            <img
-                                src={NewGLC}
-                                alt="New GLC"
-                                className="w-full h-[214px] object-cover"
-                            />
-                            <div className="absolute top-2 right-2 text-white">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 fill-white stroke-black"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M5 3v18l7-5 7 5V3z" />
-                                </svg>
-                            </div>
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold mb-1">New GLC – 2023</h3>
-                                <p className="text-sm text-gray-500 mb-3">
-                                    4.0 D5 PowerPulse Momentum 5dr AWD
-                                </p>
-                                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                                    <div className="flex flex-col items-center gap-1">
-                                        <MilesIcon />
-                                        <span>50 Miles</span>
-                                    </div>
-
-                                    <div className="flex flex-col items-center gap-1">
-                                        <FuelIcon />
-                                        <span>Petrol</span>
-                                    </div>
-
-                                    <div className="flex flex-col items-center gap-1">
-                                        <AutomaticIcon />
-                                        <span>Automatic</span>
-                                    </div>
-
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-xl font-bold">$95,000</span>
-                                    <a href="#" className="text-blue-600 text-sm hover:underline">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Card 3 */}
-                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
-                            <img
-                                src={Audi}
-                                alt="Audi A6"
-                                className="w-full h-[214px] object-cover"
-                            />
-                            <div className="absolute top-2 right-2 text-white">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 fill-white stroke-black"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M5 3v18l7-5 7 5V3z" />
-                                </svg>
-                            </div>
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold mb-1">Audi A6 3.5 – New</h3>
-                                <p className="text-sm text-gray-500 mb-3">
-                                    3.5 D5 PowerPulse Momentum 5dr AWD
-                                </p>
-                                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                                    <div className="flex flex-col items-center gap-1">
-                                        <MilesIcon />
-                                        <span>100 Miles</span>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <FuelIcon />
-                                        <span>Petrol</span>
-                                    </div>
-
-                                    <div className="flex flex-col items-center gap-1">
-                                        <AutomaticIcon />
-                                        <span>Automatic</span>
-                                    </div>
-
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-xl font-bold">$58,000</span>
-                                    <a href="#" className="text-blue-600 text-sm hover:underline">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card 4 */}
-                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
-                            <img
-                                src={Corolla}
-                                alt="Corolla Altis"
-                                className="w-full h-[214px] object-cover"
-                            />
-                            <div className="absolute top-2 right-2 text-white">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 fill-white stroke-black"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M5 3v18l7-5 7 5V3z" />
-                                </svg>
-                            </div>
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold mb-1">Corolla Altis – 2023</h3>
-                                <p className="text-sm text-gray-500 mb-3">
-                                    3.5 D5 PowerPulse Momentum 5dr AWD
-                                </p>
-                                <div className="flex justify-between  text-gray-600 mb-2 ">
-                                    <div className="flex flex-col items-center gap-1 ">
-                                        <MilesIcon />
-                                        <span>150 Miles</span>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <FuelIcon />
-                                        <span>Petrol</span>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <AutomaticIcon />
-                                        <span>CVT</span>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between items-center ">
-                                    <span className="text-xl font-bold">$45,000</span>
-                                    <a href="#" className="text-blue-600 text-sm hover:underline">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card 5 */}
-                        <div className="rounded-2xl overflow-hidden shadow-md relative bg-white">
-                            <img
-                                src={Ford_2023}
-                                alt="Ford Explorer 2023"
-                                className="w-full h-[214px] object-cover"
-                            />
-                            <div className="absolute top-2 right-2 text-white">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 fill-white stroke-black"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M5 3v18l7-5 7 5V3z" />
-                                </svg>
-                            </div>
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold mb-1">Ford Explorer 2023</h3>
-                                <p className="text-sm text-gray-500 mb-3">
-                                    3.5 D5 PowerPulse Momentum 5dr AWD
-                                </p>
-                                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                                    <div className="flex flex-col items-center gap-1">
-                                        <MilesIcon />
-
-                                        <span>10 Miles</span>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <FuelIcon />
-                                        <span>Diesel</span>
-                                    </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <AutomaticIcon />
-                                        <span>Automatic</span>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-xl font-bold">$35,000</span>
-                                    <a href="#" className="text-blue-600 text-sm hover:underline">
-                                        View Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
                     <div className="flex justify-center space-x-4 mt-10">
-                        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
+                        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition cursor-pointer">
                             &lt;
                         </button>
-                        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
+                        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition cursor-pointer">
                             &gt;
                         </button>
                     </div>
@@ -413,70 +296,6 @@ function Home() {
                     </div>
 
 
-                    {/* <div className="flex justify-between items-center mt-16 w-full  mx-auto">
-                        <div className="text-3xl font-semibold text-gray-800">
-                            Shop BoxCar Your Way
-                        </div>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-                            View All
-                        </button>
-                    </div>
-
-                    <div className="flex space-x-6 mt-6">
-                        <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
-                            New Cars For Sale
-                        </span>
-                        <span className="text-gray-700 font-semibold cursor-pointer hover:text-blue-500">
-                            Used Cars For Sale{" "}
-                        </span>
-
-                    </div>
-
-                    <div className="grid grid-cols-2 py-8 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center mb-5">
-                        <div>Section 1</div>
-                        <div>Section 2</div>
-                        <div>Section 3</div>
-                        <div>Section 4</div>
-                        <div>Section 5</div>
-                    </div> */}
-
-                    {/* <div className="flex justify-between items-center mt-12 w-full  mx-auto">
-                        <div className="text-3xl font-semibold text-gray-800">
-                            What Our Customers Say
-                        </div>
-                        <div className=" font-semibold text-gray-800">
-                            Rated 4.7/5.0 based on 28.370 reviews
-                        </div>
-                    </div>
-
-                    <div className="w-full flex flex-col md:flex-row items-center p-6 rounded-lg shadow-md mt-10">
-                        <div className="md:w-2/5 w-full flex justify-center">
-                            <img
-                                src={LogoTOYOTA}
-                                alt="Customer"
-                                className="w-52 h-52 rounded-full shadow-lg object-cover"
-                            />
-                        </div>
-                        <div className=" bg-auto md:w-3/5 w-full p-6">
-                            <h3 className="text-xl font-bold mb-2">4.9/5 ⭐</h3>
-                            <p className="text-gray-1000 font-semibold mb-1">
-                                Đặng Quang Anh
-                            </p>
-                            <p className="text-gray-1000">
-                                "Chiếc xe này rất tuyệt vời! Tôi hoàn toàn hài lòng với chất
-                                lượng và dịch vụ."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between items-center mt-12 w-full  mx-auto">
-                        <div className="text-3xl font-semibold text-gray-800">
-                            Latest Blog Post
-                        </div>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-                            View All
-                        </button>
-                    </div> */}
                     <div className="flex justify-between items-center px-2 mt-20">
                         <h3 className="text-3xl font-semibold text-gray-800">
                             Latest Blog Posts
@@ -498,7 +317,7 @@ function Home() {
                                 className="w-full h-80 object-fit rounded-lg"
                             />
                             {/* Thông tin bài blog */}
-                            <p className="text-gray-700 text-sm mt-2 text-start">April 17, 2025</p>
+                            <p className="text-gray-700 text-sm mt-4 text-start">April 17, 2025</p>
                             <h2 className="text-lg font-semibold text-gray-800 mt-2 text-start">
                                 <a href="#" className="hover:text-blue-600">
                                     2024 BMW ALPINA XB7 with exclusive details, extraordinary
@@ -517,7 +336,7 @@ function Home() {
                                 className="w-full h-80 object-fit rounded-lg"
                             />
                             {/* Thông tin bài blog */}
-                            <p className="text-gray-700 text-sm mt-2 text-start">April 17, 2025</p>
+                            <p className="text-gray-700 text-sm mt-4 text-start">April 17, 2025</p>
                             <h2 className="text-lg font-semibold text-gray-800 mt-2 text-start">
                                 <a href="#" className="hover:text-blue-600">
                                     BMW X6 M50i is designed to exceed your
@@ -537,7 +356,7 @@ function Home() {
                                 className="w-full h-80 object-fit rounded-lg"
                             />
                             {/* Thông tin bài blog */}
-                            <p className="text-gray-700 text-sm mt-2 text-start">April 17, 2025</p>
+                            <p className="text-gray-700 text-sm mt-4 text-start">April 17, 2025</p>
                             <h2 className="text-lg font-semibold text-gray-800 mt-2 text-start">
                                 <a href="#" className="hover:text-blue-600">
                                     BMW X5 Gold 2024 Sport Review: Light on
