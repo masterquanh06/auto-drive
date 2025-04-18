@@ -31,10 +31,10 @@ export default function Header() {
           Listing
         </Link>
         <Link
-          to="/about"
+          to="/blog"
           className="hover:text-indigo-300 text-emerald-400 cursor-pointer flex items-center"
         >
-          About
+          Blog
         </Link>
         <Link
           to="/contact"
@@ -79,7 +79,7 @@ export default function Header() {
             <NavLink to="/listings" onClick={() => setIsOpen(false)}>
               Listing
             </NavLink>
-            <NavLink to="/about" onClick={() => setIsOpen(false)}>
+            <NavLink to="/blog" onClick={() => setIsOpen(false)}>
               About
             </NavLink>
             <NavLink to="/contact" onClick={() => setIsOpen(false)}>

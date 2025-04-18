@@ -6,6 +6,7 @@ import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
 import Listings from "../pages/listCar/Listings";
 import Home from "../pages/root/Home";
+import Blog from "../pages/blog/Blog";
 
 
 export default createBrowserRouter([
@@ -34,8 +35,8 @@ export default createBrowserRouter([
                 path: '/listings'
             },
             {
-                element: <Listings />,
-                path: '/about'
+                element: <Blog />,
+                path: '/blog'
             },
             {
                 element: <Listings />,

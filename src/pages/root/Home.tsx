@@ -1,10 +1,11 @@
 import Background_RR from "../../assets/images/Background_RR.jpg";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
-import LogoAudi from "../../assets/images/LogoAudi.jpg";
-import LogoBMW from "../../assets/images/LogoBMW.jpg";
-import LogoKia from "../../assets/images/LogoKia.jpg";
-import LogoMercedes from "../../assets/images/LogoMercedes.jpg";
-import LogoTOYOTA from "../../assets/images/LogoTOYOTA.jpg";
+import Logo1 from "../../assets/images/LogoFord.png";
+import Logo2 from "../../assets/images/Logo_Audi.png";
+import Logo3 from "../../assets/images/Logo_Mercedes.png";
+import Logo4 from "../../assets/images/Logo_Peugeot.png";
+import Logo5 from "../../assets/images/Logo_Volkswagen.png";
+import Logo6 from "../../assets/images/Logo_BMW.png";
 import SuvIcon from "../../Components/Icons/SuvIcon";
 import SedanIcon from "../../Components/Icons/SedanIcon";
 import CoupeIcon from "../../Components/Icons/CoupeIcon";
@@ -21,7 +22,6 @@ import ToyotaSP from "../../assets/images/ToyotaSP.jpg";
 import MercedesAMG from "../../assets/images/MercedesAMG.jpg";
 import BMW_M4 from "../../assets/images/BMW_M4.jpg";
 import { Button, Input } from "antd";
-import { Color } from "antd/es/color-picker";
 function Home() {
     return (
         <nav className=" bg-white shadow-md  relative z-10">
@@ -38,19 +38,19 @@ function Home() {
                             <br />
                             <span className="text-white  text-[16px]">Or Browser Featured Model</span>
                             <div className="mt-10 flex justify-center gap-4">
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
-                                    <div className="flex items-center gap-2 ">
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor: "#595959" }}>
+                                    <div className="flex hover:marker items-center gap-2 ">
                                         <SuvIcon />
                                         <span> SUV</span>
                                     </div>
                                 </Button>
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor: "#595959", }}>
                                     <div className="flex items-center gap-2">
                                         <SedanIcon />
                                         <span>Sedan</span>
                                     </div>
                                 </Button>
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor: "#595959" }}>
                                     <div className="flex items-center gap-2">
 
                                         <svg width="27" height="35" viewBox="0 0 27 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,13 +62,13 @@ function Home() {
                                     <span className="text-white">Hatchback</span>
 
                                 </Button>
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor: "#595959" }}>
                                     <div className="flex items-center gap-2">
                                         <CoupeIcon />
                                         <span>Coupe</span>
                                     </div>
                                 </Button>
-                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor:"#595959" }}>
+                                <Button color="danger" variant="solid" style={{ borderRadius: 99, backgroundColor: "#595959" }}>
                                     <div className="flex items-center gap-2">
                                         <HybridIcon />
                                         <span>Hybrid</span>
@@ -81,22 +81,25 @@ function Home() {
             </div>
 
             <section className="w-full py-12 ">
-                <div className="container mx-auto pl-10 pr-10">
+                <div className="container mx-auto pl-20 pr-20">
                     <div className="flex justify-between items-center px-2">
-                        <h2 className="text-xl font-bold text-gray-800 left-0 max-md:text-center">
+                        <h2 className="text-3xl font-semibold text-gray-800 left-0 max-md:text-center">
                             Explore Our Premium Brands
                         </h2>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
                             View All
                         </button>
                     </div>
-                    <div className="grid grid-cols-6 max-lg:grid-cols-2 max-lg:pl-40 max-sm:pl-15 max-lg:gap-5 mt-6 w-full">
-                        <div className="w-30 h-30"><img src={LogoTOYOTA} alt="Toyota" className="h-30 w-30 object-cover rounded-2xl" /></div>
-                        <div className="w-30 h-30"><img src={LogoMercedes} alt="Mercedes" className="h-30 w-30 object-cover rounded-2xl" /></div>
-                        <div className="w-30 h-30"><img src={LogoBMW} alt="BMW" className="h-30 w-30 object-cover rounded-2xl" /></div>
-                        <div className="w-30 h-30"><img src={LogoAudi} alt="Audi" className="h-30 w-30 object-cover rounded-2xl" /></div>
-                        <div className="w-30 h-30"><img src={LogoKia} alt="Kia" className="h-30 w-30 object-cover rounded-2xl" /></div>
-                        <div className="w-30 h-30"><img src={LogoKia} alt="Kia" className="h-30 w-30 object-cover rounded-2xl" /></div>
+                    <div className=" flex gap-5 pt-10">
+                        <img 
+                        src={Logo1} 
+                        alt="" />
+                        <img 
+                        src={Logo2} alt="" />
+                        <img src={Logo3} alt="" />
+                        <img src={Logo4} alt="" />
+                        <img src={Logo5} alt="" />
+                        <img src={Logo6} alt="" />
                     </div>
                     <div className="flex justify-between items-center mt-24 w-full  mx-auto">
                         <h3 className="text-3xl font-semibold text-gray-800">
@@ -129,7 +132,7 @@ function Home() {
                                 alt="Ford Transit"
                                 className="w-full h-[214px] object-cover"
                             />
-                            <div className="absolute top-2 right-2 text-white">
+                            <div className="absolute top-2 right-2 cursor-pointer text-white">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 fill-white stroke-black"
@@ -179,7 +182,7 @@ function Home() {
                                 alt="New GLC"
                                 className="w-full h-[214px] object-cover"
                             />
-                            <div className="absolute top-2 right-2 text-white">
+                            <div className="absolute top-2 right-2 cursor-pointer text-white">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 fill-white stroke-black"
@@ -225,7 +228,7 @@ function Home() {
                                 alt="Audi A6"
                                 className="w-full h-[214px] object-cover"
                             />
-                            <div className="absolute top-2 right-2 text-white">
+                            <div className="absolute top-2 right-2 cursor-pointer text-white">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 fill-white stroke-black"
@@ -271,7 +274,7 @@ function Home() {
                                 alt="Corolla Altis"
                                 className="w-full h-[214px] object-cover"
                             />
-                            <div className="absolute top-2 right-2 text-white">
+                            <div className="absolute top-2 cursor-pointer right-2 text-white">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 fill-white stroke-black"
@@ -315,7 +318,7 @@ function Home() {
                                 alt="Ford Explorer 2023"
                                 className="w-full h-[214px] object-cover"
                             />
-                            <div className="absolute top-2 right-2 text-white">
+                            <div className="absolute cursor-pointer top-2 right-2 text-white">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5 fill-white stroke-black"
@@ -499,7 +502,7 @@ function Home() {
                             </h2>
                         </div>
                         <div className="bg-white shadow-md rounded-lg text-center">
-                            <img 
+                            <img
                                 src={BMW_M4}
                                 alt="BMW M4"
                                 className="w-full h-80 object-cover rounded-md"
@@ -521,7 +524,7 @@ function Home() {
                                 We are committed to providing our customers with exceptional
                                 service.
                             </p>
-                            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                            <button className="mt-4 bg-blue-600 text-white px-4 py-2 cursor-pointer rounded-lg hover:bg-blue-700 transition">
                                 Get Started →
                             </button>
                         </div>
@@ -533,7 +536,7 @@ function Home() {
                                 We are committed to providing our customers with exceptional
                                 service.
                             </p>
-                            <button className="mt-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+                            <button className="mt-4 bg-black text-white px-4 py-2 cursor-pointer rounded-lg hover:bg-gray-800 transition">
                                 Get Started →
                             </button>
                         </div>
