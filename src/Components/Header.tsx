@@ -1,54 +1,75 @@
 
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import CartIcon from "./Icons/CartIcon";
 import DeleteIcon from "./Icons/DeleteIcon";
-import { useState } from "react";
 import MenuIcon from "./Icons/MenuIcon";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [isSticky, setIsSticky] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= window.innerHeight) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    // Lắng nghe sự kiện scroll
+    window.addEventListener("scroll", handleScroll);
+
+
+    // Dọn dẹp sự kiện khi component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className=" w-full bg-gradient-to-br from-gray-200 to-sky-100 fixed bg-transparent mx-auto flex justify-between items-center px-2 py-1.5">
-      <div className="text-xl font-bold text-gray-800">AutoDrive</div>
+    <div className={`w-full bg-gradient-to-br bg-transparent fixed mx-auto flex justify-between items-center px-2 py-3 transition-all duration-300 ${isSticky ? "shadow-lg bg-white" : "bg-transparent"
+      }`}>
+      <Link to="/" className={`cursor-pointer font-semibold text-3xl ${isSticky ? "text-gray-700" : "text-white"} `}>AutoDrive.</Link>
 
       <div className="flex gap-6 max-md:hidden  font-semibold items-center">
-        <Link
+        <NavLink
           to="/"
-          className="hover:text-indigo-300 text-emerald-400 cursor-pointer flex items-center"
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
         >
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/listings"
-          className="hover:text-indigo-300 text-emerald-400 cursor-pointer flex items-center"
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
         >
           Listing
-        </Link>
-        <Link
-          to="/blog"
-          className="hover:text-indigo-300 text-emerald-400 cursor-pointer flex items-center"
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
         >
-          Blog
-        </Link>
-        <Link
+          About
+        </NavLink>
+        <NavLink
           to="/contact"
-          className="hover:text-indigo-300 text-emerald-400 cursor-pointer flex items-center"
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
         >
           Contact
-        </Link>
-        <CartIcon />
-        <a
-          href="/login"
-          className="text-gray-700 hover:text-indigo-300 px-4 rounded-lg transition"
+        </NavLink>
+        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}><CartIcon /></div>
+        <NavLink
+          to="/login"
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
         >
           Sign In
-        </a>
+        </NavLink>
       </div>
       <div className="md:hidden flex items-center gap-4">
         <CartIcon />
@@ -71,7 +92,7 @@ export default function Header() {
           <DeleteIcon />
         </button>
 
-        <nav className="flex flex-col justify-between h-[90%] mt-10 py-1">
+        <nav className="flex flex-col justify-between h-[90%]  py-1">
           <div className="flex flex-col gap-4">
             <NavLink to="/" onClick={() => setIsOpen(false)}>
               Home
