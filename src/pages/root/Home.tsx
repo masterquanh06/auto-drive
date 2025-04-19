@@ -24,7 +24,7 @@ import ViewAll from "../../Components/Icons/ViewAll";
 import ViewMore from "../../Components/Icons/ViewMore";
 
 
-import { Button, Input } from "antd";
+import { Input } from "antd";
 function Home() {
     const vehiclesData = [
         {
@@ -63,8 +63,8 @@ function Home() {
         },
         {
             id: 5,
-            name: "Ford Explorer 2023",
-            price: 35000,
+            name: "BMW M4",
+            price: 80000,
             image: Car5,
             specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
             tag: "Great Price",
@@ -198,7 +198,7 @@ function Home() {
                             Explore All Vehicles
                         </h3>
 
-                        <ViewMore />
+                        <ViewAll />
                     </div>
                     {/* Tabs lọc */}
                     <div className="flex space-x-4 mb-6">
@@ -236,7 +236,7 @@ function Home() {
                         {filteredVehicles.map((vehicle) => (
                             <div
                                 key={vehicle.id}
-                                className="bg-white rounded-lg border border-gray-200 overflow-hidden relative"
+                                className="bg-white rounded-lg border border-gray-200 overflow relative"
                             >
                                 {vehicle.tag && (
                                     <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
