@@ -41,29 +41,23 @@ export default function Header() {
       <div className="flex gap-6 max-md:hidden  font-semibold items-center">
         <NavLink
           to="/"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
         >
           Home
         </NavLink>
         <NavLink
           to="/listings"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white  hover:text-amber-800  transition duration-300"} `}
         >
           Listing
         </NavLink>
         <NavLink
           to="/about"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
         >
-          About
+          Blog
         </NavLink>
-        <NavLink
-          to="/contact"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
-        >
-          Contact
-        </NavLink>
-        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}><CartIcon /></div>
+
         <NavLink
           to="/login"
           className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
