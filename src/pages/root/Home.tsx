@@ -264,7 +264,7 @@ function Home() {
                                         {vehicle.des}
                                     </p>
                                     <JampIcon />
-                                    <div className="flex justify-between text-sm text-gray-600 my-2">
+                                    <div className="flex justify-between text-sm text-gray-600 mb-2 mt-3">
                                         <div className="flex flex-col justify-center items-center">
                                             <MilesIcon />
                                             <span className="mt-1">{vehicle.specs.mileage}</span>
