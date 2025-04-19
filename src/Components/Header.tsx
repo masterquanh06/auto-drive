@@ -72,10 +72,10 @@ export default function Header() {
         </NavLink>
       </div>
       <div className="md:hidden flex items-center gap-4">
-        <CartIcon />
+        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}><CartIcon /></div>
         <div className="md:hidden  rounded-2xl">
           {!isOpen && (
-            <button onClick={toggleMenu} className="flex cursor-pointer">
+            <button onClick={toggleMenu} className={`cursor-pointer flex  ${isSticky ? "text-gray-700" : "text-white"} `}>
               <MenuIcon />
             </button>
           )}
