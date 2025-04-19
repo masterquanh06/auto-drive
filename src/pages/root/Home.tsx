@@ -25,6 +25,10 @@ import ViewMore from "../../Components/Icons/ViewMore";
 
 
 import { Input } from "antd";
+import FuelIcon from "../../components/icons/FuelIcon";
+import JampIcon from "../../components/icons/JampIcon";
+import ManualIcon from "../../components/icons/ManualIcon";
+import MilesIcon from "../../components/icons/MilesIcon";
 function Home() {
     const vehiclesData = [
         {
@@ -32,6 +36,7 @@ function Home() {
             name: "Ford Transit - 2021",
             price: 22000,
             image: Car1,
+            des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },
             tag: "Great Price",
             status: "used", // Xe đã qua sử dụng
@@ -41,6 +46,7 @@ function Home() {
             name: "New GLC - 2023",
             price: 95000,
             image: Car2,
+            des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" },
             tag: "Low Mileage",
             status: "new", // Xe mới
@@ -50,6 +56,7 @@ function Home() {
             name: "Audi A6 3.5 - New",
             price: 58000,
             image: Car3,
+            des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" },
             status: "new", // Xe mới
         },
@@ -58,6 +65,7 @@ function Home() {
             name: "Corolla Altis - 2023",
             price: 45000,
             image: Car4,
+            des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },
             status: "used", // Xe đã qua sử dụng
         },
@@ -66,6 +74,7 @@ function Home() {
             name: "BMW M4",
             price: 80000,
             image: Car5,
+            des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
             tag: "Great Price",
             status: "new", // Xe mới
@@ -201,38 +210,37 @@ function Home() {
                         <ViewAll />
                     </div>
                     {/* Tabs lọc */}
-                    <div className="flex space-x-4 mb-6">
+                    <div className="flex space-x-4 mb-2">
                         <button
                             onClick={() => handleFilter("inStock")}
-                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "inStock"
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-200 text-gray-800"
-                                } hover:bg-blue-500 hover:text-white transition`}
+                            className={`cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300 ${filter === "inStock"
+                                ? "text-amber-700"
+                                : "text-gray-800"
+                                }  hover:text-amber-700 transition`}
                         >
                             In Stock
                         </button>
                         <button
                             onClick={() => handleFilter("newCars")}
-                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "newCars"
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-200 text-gray-800"
-                                } hover:bg-blue-500 hover:text-white transition`}
+                            className={`cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300 ${filter === "newCars"
+                                ? "text-amber-700"
+                                : "text-gray-800"
+                                }  hover:text-amber-700 transition`}
                         >
                             New Cars
                         </button>
                         <button
                             onClick={() => handleFilter("usedCars")}
-                            className={`px-4 py-2 rounded-lg cursor-pointer ${filter === "usedCars"
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-200 text-gray-800"
-                                } hover:bg-blue-500 hover:text-white transition`}
+                            className={`cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300 ${filter === "usedCars"
+                                ? "text-amber-700"
+                                : "text-gray-800"
+                                }  hover:text-amber-700 transition`}
                         >
                             Used Cars
                         </button>
                     </div>
-
                     {/* Danh sách xe */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
                         {filteredVehicles.map((vehicle) => (
                             <div
                                 key={vehicle.id}
@@ -252,17 +260,32 @@ function Home() {
                                     <h3 className="text-lg font-semibold text-gray-800">
                                         {vehicle.name}
                                     </h3>
-                                    <p className="text-xl font-bold text-blue-600">
-                                        ${vehicle.price.toLocaleString()}
+                                    <p className="truncate text-gray-700">
+                                        {vehicle.des}
                                     </p>
-                                    <div className="flex justify-between text-sm text-gray-600 mt-2">
-                                        <span>{vehicle.specs.mileage}</span>
-                                        <span>{vehicle.specs.fuel}</span>
-                                        <span>{vehicle.specs.transmission}</span>
+                                    <JampIcon />
+                                    <div className="flex justify-between text-sm text-gray-600 my-2">
+                                        <div className="flex flex-col justify-center items-center">
+                                            <MilesIcon />
+                                            <span className="mt-1">{vehicle.specs.mileage}</span>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <FuelIcon />
+                                            <span className="mt-1">{vehicle.specs.fuel}</span>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <ManualIcon />
+                                            <span className="mt-1">{vehicle.specs.transmission}</span>
+                                        </div>
                                     </div>
-                                    <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
-                                        View Details
-                                    </button>
+                                    <JampIcon />
+                                    <div className="flex w-full justify-between mt-2">
+                                        <p className="text-xl font-bold text-black mt-1">
+                                            ${vehicle.price.toLocaleString()}
+                                        </p>
+                                        <ViewMore />
+
+                                    </div>
                                 </div>
                             </div>
                         ))}
