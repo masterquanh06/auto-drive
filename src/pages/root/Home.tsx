@@ -9,25 +9,24 @@ import Car4 from "../../assets/images/Corolla2023.png";
 import Car1 from "../../assets/images/Ford_2023.png";
 import Car2 from "../../assets/images/Ford_Transit_2021.png";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
-import LogoAudi from "../../assets/images/logoAudi.png";
-import LogoBMW from "../../assets/images/logoBmw.png";
-import LogoFord from "../../assets/images/logoFord.png";
-import LogoMer from "../../assets/images/logoMer.png";
-import LogoPeugeot from "../../assets/images/logoPeugeot.png";
-import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
-
+import LogoAudi from "../../assets/images/logoAudi.png"
+import LogoFord from "../../assets/images/logoFord.png"
+import LogoBMW from "../../assets/images/logoBmw.png"
+import LogoMer from "../../assets/images/logoMer.png"
+import LogoPeugeot from "../../assets/images/logoAudi.png"
+import LogoVolkswagen from "../../assets/images/logoVolkswagen.png"
 
 
 import { Input } from "antd";
+import CoupeIcon from "../../components/icons/CoupeIcon";
 import FuelIcon from "../../components/icons/FuelIcon";
+import HatchbackIcon from "../../components/icons/HatchbackIcon";
+import HybridIcon from "../../components/icons/HybridIcon";
 import JampIcon from "../../components/icons/JampIcon";
 import ManualIcon from "../../components/icons/ManualIcon";
 import MilesIcon from "../../components/icons/MilesIcon";
-import SuvIcon from "../../components/icons/SuvIcon";
 import SedanIcon from "../../components/icons/SedanIcon";
-import HatchbackIcon from "../../components/icons/HatchbackIcon";
-import CoupeIcon from "../../components/icons/CoupeIcon";
-import HybridIcon from "../../components/icons/HybridIcon";
+import SuvIcon from "../../components/icons/SuvIcon";
 import ViewAll from "../../components/icons/ViewAll";
 import ViewMore from "../../components/icons/ViewMore";
 function Home() {

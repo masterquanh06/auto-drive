@@ -3,9 +3,10 @@ export interface Order {
     user_id: number;
     total: number;
     created_at: string;
-    items: {
-        car_id: number;
-        quantity: number;
-        price: number;
-    }[];
+}
+
+export interface OrderDetail {
+    car_id: number;
+    quantity: number;
+    price: number;
 }
