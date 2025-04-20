@@ -1,4 +1,12 @@
+import { Input } from "antd";
 import { useState } from "react";
+import SuvIcon from "../../components/icons/SuvIcon";
+import SedanIcon from "../../components/icons/SedanIcon";
+import HatchbackIcon from "../../components/icons/HatchbackIcon";
+import CoupeIcon from "../../components/icons/CoupeIcon";
+import HybridIcon from "../../components/icons/HybridIcon";
+import CarsImg from "../../assets/images/Cars.png";
+
 
 function Listings() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -134,6 +142,12 @@ function Listings() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
+        <div
+                className="w-full h-screen bg-cover bg-center bg-no-repeat -z-10"
+                style={{ backgroundImage: `url(${CarsImg})` }}
+            >
+                
+            </div>
       <main className="container mx-auto px-4 py-8">
         <h2 className="text-4xl font-bold mb-6">Available Cars</h2>
 
