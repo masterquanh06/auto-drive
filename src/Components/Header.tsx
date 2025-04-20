@@ -57,7 +57,9 @@ export default function Header() {
         >
           Blog
         </NavLink>
-        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}><CartIcon /></div>
+        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}>
+          <Link to={"/cart"}><CartIcon /></Link>
+        </div>
 
         <NavLink
           to="/login"
