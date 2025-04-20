@@ -57,11 +57,11 @@ export default function Header() {
         >
           Blog
         </NavLink>
-        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}><CartIcon /></div>
+        <div className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}><CartIcon /></div>
 
         <NavLink
           to="/login"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700" : "text-white"} `}
+          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
         >
           Sign In
         </NavLink>

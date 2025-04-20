@@ -15,13 +15,7 @@ import LogoFord from "../../assets/images/logoFord.png";
 import LogoMer from "../../assets/images/logoMer.png";
 import LogoPeugeot from "../../assets/images/logoPeugeot.png";
 import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
-import CoupeIcon from "../../Components/Icons/CoupeIcon";
-import HatchbackIcon from "../../Components/Icons/HatchbackIcon";
-import HybridIcon from "../../Components/Icons/HybridIcon";
-import SedanIcon from "../../Components/Icons/SedanIcon";
-import SuvIcon from "../../Components/Icons/SuvIcon";
-import ViewAll from "../../Components/Icons/ViewAll";
-import ViewMore from "../../Components/Icons/ViewMore";
+
 
 
 import { Input } from "antd";
@@ -29,6 +23,13 @@ import FuelIcon from "../../components/icons/FuelIcon";
 import JampIcon from "../../components/icons/JampIcon";
 import ManualIcon from "../../components/icons/ManualIcon";
 import MilesIcon from "../../components/icons/MilesIcon";
+import SuvIcon from "../../components/icons/SuvIcon";
+import SedanIcon from "../../components/icons/SedanIcon";
+import HatchbackIcon from "../../components/icons/HatchbackIcon";
+import CoupeIcon from "../../components/icons/CoupeIcon";
+import HybridIcon from "../../components/icons/HybridIcon";
+import ViewAll from "../../components/icons/ViewAll";
+import ViewMore from "../../components/icons/ViewMore";
 function Home() {
     const vehiclesData = [
         {
