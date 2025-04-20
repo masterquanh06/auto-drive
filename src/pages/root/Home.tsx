@@ -10,7 +10,7 @@ import Car1 from "../../assets/images/Ford_2023.png";
 import Car2 from "../../assets/images/Ford_Transit_2021.png";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
 import LogoAudi from "../../assets/images/logoAudi.png"
-import LogoFord from "../../assets/images/logoFord.png"
+import LogoFord from "../../assets/images/logoFord.jpg"
 import LogoBMW from "../../assets/images/logoBmw.png"
 import LogoMer from "../../assets/images/logoMer.png"
 import LogoPeugeot from "../../assets/images/logoAudi.png"
