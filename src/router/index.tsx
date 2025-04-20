@@ -7,6 +7,7 @@ import SignUp from "../pages/auth/SignUp";
 import Listings from "../pages/listCar/Listings";
 import Home from "../pages/root/Home";
 import Blog from "../pages/blog/Blog";
+import Cart from "../pages/cart/cart";
 
 
 export default createBrowserRouter([
@@ -31,6 +32,10 @@ export default createBrowserRouter([
                 path: '/',
             },
             {
+                element: <Home />,
+                path: '/home',
+            },
+            {
                 element: <Listings />,
                 path: '/listings'
             },
@@ -41,6 +46,10 @@ export default createBrowserRouter([
             {
                 element: <Listings />,
                 path: '/contact'
+            },
+            {
+                element: <Cart />,
+                path: '/cart'
             },
         ]
     }
