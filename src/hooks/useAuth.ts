@@ -1,14 +1,16 @@
-import { useMutation } from '@tanstack/react-query'
-import api from '../config/axios.config.ts';
+// hooks/useLogin.ts
 
-export const useLogin = () => {
+import { useMutation } from '@tanstack/react-query';
+import { login } from '../services/auth.service';
+import { LoginPayload, LoginResponse } from '../types/user';
+
+export const useLogin = (
+    onSuccess?: (data: LoginResponse) => void,
+    onError?: (error: any) => void
+) => {
     return useMutation({
-        mutationFn: (data: { email: string; password: string }) => api.post('/login', data),
+        mutationFn: (payload: LoginPayload) => login(payload),
+        onSuccess,
+        onError,
     });
 };
-
-export const useRegister = () => {
-    return useMutation({
-        mutationFn: (data: { email: string; password: string; role?: string }) => api.post('/register', data),
-    })
-}

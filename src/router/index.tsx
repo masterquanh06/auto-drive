@@ -22,6 +22,10 @@ export default createBrowserRouter([
                 element: <SignUp />,
                 path: '/signup'
             },
+            {
+                element: <Cart />,
+                path: '/cart'
+            },
         ]
     },
     {
@@ -47,10 +51,7 @@ export default createBrowserRouter([
                 element: <Listings />,
                 path: '/contact'
             },
-            {
-                element: <Cart />,
-                path: '/cart'
-            },
+            
         ]
     }
 ]);

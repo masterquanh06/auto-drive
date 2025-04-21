@@ -1,15 +1,22 @@
+// types/user.ts
+
+export interface LoginPayload {
+  username: string;
+  password: string;
+}
+
 export interface RegisterPayload {
-    username: string;
-    password: string;
-  }
-  
-  export interface LoginPayload {
-    username: string;
-    password: string;
-  }
-  
-  export interface User {
+  email: string;
+  password: string;
+  name: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  user: {
     id: number;
-    username: string;
+    name: string;
+    email: string;
     role: string;
-  }
+  };
+}

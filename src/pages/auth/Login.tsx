@@ -1,8 +1,9 @@
 import { Button, Checkbox, Form, Input } from 'antd';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Background from '../../assets/images/Background.jpg';
 import FbIcon from '../../assets/images/Fb-Icon.jpg';
 import GgIcon from '../../assets/images/Gg-Icon.jpg';
+import { useLogin } from '../../hooks/useAuth';
 const Login = () => {
   type FieldType = {
     username?: string;
@@ -10,7 +11,25 @@ const Login = () => {
     remember?: boolean;
   };
 
+  const navigate = useNavigate();
+  const { mutate: loginMutate, isPending } = useLogin(
+    (data) => {
+      localStorage.setItem('token', data.token);
+      console.log('Login success', data);
+      navigate("/");
+    },
+    (error) => {
+      console.error('Login error', error);
+    }
+  );
 
+  const onFinish = (values: any) => {
+    // call api login
+    loginMutate({
+      username: values.username,
+      password: values.password
+    });
+  }
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
@@ -22,6 +41,7 @@ const Login = () => {
           autoComplete="off"
           className="w-full max-w-lg"
           layout="vertical"
+          onFinish={onFinish}
         >
           <h1 className="text-center mb-6 text-xl font-semibold text-gray-700">
             Nhập đầy đủ thông tin để truy cập vào tài khoản!

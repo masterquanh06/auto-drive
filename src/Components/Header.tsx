@@ -52,7 +52,7 @@ export default function Header() {
           Listing
         </NavLink>
         <NavLink
-          to="/about"
+          to="/blog"
           className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
         >
           Blog
