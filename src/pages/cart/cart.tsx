@@ -64,44 +64,33 @@ export default function Cart() {
   };
 
   return (
-    <div className="">
+    <div className="flex items-center justify-center w-full">
       {/* Shopping Cart Section */}
-          <div
-            className="w-full h-screen bg-cover bg-center bg-no-repeat -z-10"
-                style={{ backgroundImage: `url(${CartCarImg})` }}
-            >
-                
-            </div>
-      <div className="flex  justify-center gap-4 w-250  h-screen mx-auto bg-gray-100 rounded-2xl p-4 my-10">
+      <div className="flex max-lg:flex-col justify-center gap-4 w-4/5  h-full mx-auto bg-gray-100 rounded-2xl p-4 my-10">
         <div className="w-full flex items-start flex-col p-6">
           <div className="flex items-center mb-4 text-blue-500  text-lg font-semibold cursor-pointer py-2">
             <Link className="flex items-center hover:opacity-70" to={"/home"}>
-              <div className="rotate-180">
-                <ArrowRight />
-              </div>
-              Shopping Continue
+              Turn back
             </Link>
           </div>
           <h2 className="text-xl font-bold mb-2">Shopping cart</h2>
           <p className="text-gray-500 mb-4">
             You have {items.length} items in your cart
           </p>{" "}
-          {/* Sử dụng items.length */}
-          {items.map(
-            (
-              item,
-              index // Sử dụng items thay vì cartItems
-            ) => (
-              <div
-                key={index}
-                className="flex items-center w-full mb-4 shadow-[0_0_5px_rgba(0,0,0,0.2)] rounded-2xl p-4"
-              >
-                <div className="flex justify-center w-16 h-16 bg-gray-200 mr-4">
-                  <img className="rounded-xl" src={item.img} alt={item.name} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-gray-500">{item.description}</p>
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex  items-center w-full mb-4 shadow-[0_0_5px_rgba(0,0,0,0.2)] rounded-2xl p-4"
+            >
+              <div className="flex justify-center w-16 h-16 bg-gray-200 mr-4">
+                <img className="rounded-xl" src={item.img} alt={item.name} />
+              </div>
+              <div className="flex max-xl:flex-col justify-between w-full">
+                <div className="">
+                  <div className="flex-1">
+                    <h3 className="font-semibold">{item.name}</h3>
+                    <p className="text-gray-500">{item.description}</p>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Button
@@ -124,15 +113,13 @@ export default function Cart() {
                   <TrashIcon />
                 </div>
               </div>
-            )
-          )}
+            </div>
+          ))}
         </div>
-  
+
         {/* Card Details Section */}
-        <div className="w-full h-80 flex gap-5 flex-col  justify-start max-w-sm bg-[#A0CDD0] text-white rounded-lg shadow-lg p-6 mt-8">
-            <label className="text-5xl mb-2">Cart</label>
-            
-  
+        <div className="w-full h-80  flex gap-5 flex-col  justify-start mx-auto  max-w-sm bg-[#A0CDD0] text-white rounded-lg shadow-lg p-6  lg:mt-8">
+          <label className="text-5xl mb-2">Cart</label>
           <div className="flex justify-between mb-2">
             <span>Subtotal</span>
             <span>${subtotal}</span>
@@ -145,12 +132,12 @@ export default function Cart() {
             <span>TOTAL</span>
             <span>${total}</span>
           </div>
-  
+
           <Button className="w-full bg-teal-400 text-black font-semibold py-2 rounded-lg flex items-center justify-between">
             <span>Order payment</span>
           </Button>
         </div>
       </div>
-      </div>
+    </div>
   );
 }
