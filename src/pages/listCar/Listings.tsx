@@ -21,7 +21,7 @@ import MilesIcon from "../../Components/Icons/MilesIcon";
 import { FuelIcon } from "lucide-react";
 import ManualIcon from "../../Components/Icons/ManualIcon";
 import ViewMore from "../../Components/Icons/ViewMore";
-
+import { Pagination } from "antd";
 function Listings() {
   const vehiclesData = [
     {
@@ -178,6 +178,9 @@ function Listings() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("All Types");
   const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 8;
 
   useEffect(() => {
     let filtered = [...vehiclesData];
@@ -201,7 +204,12 @@ function Listings() {
     }
 
     setFilteredVehicles(filtered);
+    setCurrentPage(1); 
   }, [filter, selectedType, searchTerm]);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = filteredVehicles.slice(startIndex, endIndex);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -232,22 +240,15 @@ function Listings() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
-          {filteredVehicles.map((vehicle) => (
-            <div
-              key={vehicle.id}
-              className="bg-white rounded-lg border border-gray-200 relative"
-            >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+          {currentItems.map((vehicle) => (
+            <div key={vehicle.id} className="bg-white rounded-lg border border-gray-200 relative">
               {vehicle.tag && (
                 <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
                   {vehicle.tag}
                 </span>
               )}
-              <img
-                src={vehicle.image}
-                alt={vehicle.name}
-                className="w-full h-48 object-cover"
-              />
+              <img src={vehicle.image} alt={vehicle.name} className="w-full h-48 object-cover" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-gray-800">{vehicle.name}</h3>
                 <p className="truncate text-gray-700">{vehicle.des}</p>
@@ -276,6 +277,16 @@ function Listings() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="flex items-center justify-center mt-10">
+          <Pagination
+            current={currentPage}
+            total={filteredVehicles.length}
+            pageSize={itemsPerPage}
+            onChange={(page) => setCurrentPage(page)}
+            showSizeChanger={false}
+          />
         </div>
       </main>
     </div>
