@@ -39,21 +39,37 @@ export default function Header() {
       <Link to="/" className={`cursor-pointer font-semibold text-3xl ${isSticky ? "text-gray-700" : "text-white"} `}>AutoDrive.</Link>
 
       <div className="flex gap-6 max-md:hidden  font-semibold items-center">
+
         <NavLink
           to="/"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
+          className={({ isActive }) =>
+            `cursor-pointer flex items-center transition duration-300 ${isSticky
+              ? `${isActive ? "text-amber-800 font-bold" : "text-gray-700"} cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+              : `${isActive ? "font-bold text-white" : "text-white"} hover:font-bold cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-white hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+            }`
+          }
         >
           Home
         </NavLink>
         <NavLink
           to="/listings"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white  hover:text-amber-800  transition duration-300"} `}
+          className={({ isActive }) =>
+            `cursor-pointer flex items-center transition duration-300 ${isSticky
+              ? `${isActive ? "text-amber-800 font-bold" : "text-gray-700"} cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+              : `${isActive ? "font-bold text-white" : "text-white"} hover:font-bold cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-white hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+            }`
+          }
         >
           Listing
         </NavLink>
         <NavLink
           to="/blog"
-          className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700  hover:text-amber-800  transition duration-300" : "text-white hover:text-amber-800  transition duration-300"} `}
+          className={({ isActive }) =>
+            `cursor-pointer flex items-center transition duration-300 ${isSticky
+              ? `${isActive ? "text-amber-800 font-bold" : "text-gray-700"} cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+              : `${isActive ? "font-bold text-white" : "text-white"} hover:font-bold cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-white hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+            }`
+          }
         >
           Blog
         </NavLink>
