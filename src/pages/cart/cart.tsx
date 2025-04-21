@@ -64,9 +64,9 @@ export default function Cart() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex justify-center items-center min-h-screen">
       {/* Shopping Cart Section */}
-      <div className="flex max-lg:flex-col justify-center gap-4 w-4/5  h-full mx-auto bg-gray-100 rounded-2xl p-4 my-10">
+      <div className="flex max-lg:flex-col gap-4 w-4/5 max-lg:w-full  h-full  bg-gray-100 rounded-2xl p-4 ">
         <div className="w-full flex items-start flex-col p-6">
           <div className="flex items-center mb-4 text-blue-500  text-lg font-semibold cursor-pointer py-2">
             <Link className="flex items-center hover:opacity-70" to={"/home"}>
