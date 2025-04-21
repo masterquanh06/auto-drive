@@ -34,20 +34,7 @@ export default function Blog() {
 
   return (
     <div className="bg-white min-h-screen font-sans">
-      <header className="bg-blue-900 text-white px-4 py-10 flex flex-col lg:flex-row items-center justify-between">
-        <div className="max-w-xl">
-          <p className="text-lg mb-2">Welcome to AutoDrive Blog</p>
-          <p className="text-xl lg:text-2xl font-semibold leading-snug">
-            Insights, tips, and stories for car enthusiasts and everyday drivers.
-          </p>
-        </div>
-        <div className="relative mt-6 lg:mt-0">
-          <img src="https://via.placeholder.com/200" alt="author" className="rounded-full w-40 h-40 object-cover border-4 border-white" />
-          <div className="absolute top-0 left-0 bg-orange-500 text-white font-bold px-4 py-1 rounded-full -translate-x-1/2 -translate-y-1/2">
-            Hi!
-          </div>
-        </div>
-      </header>
+
 
       <main className="px-4 py-10 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-blue-900 mb-10 relative">
