@@ -18,17 +18,17 @@ import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
 
 
 import { Input } from "antd";
-import CoupeIcon from "../../Components/Icons/CoupeIcon";
-import FuelIcon from "../../Components/Icons/FuelIcon";
-import HatchbackIcon from "../../Components/Icons/HatchbackIcon";
-import HybridIcon from "../../Components/Icons/HybridIcon";
-import JampIcon from "../../Components/Icons/JampIcon";
-import ManualIcon from "../../Components/Icons/ManualIcon";
-import MilesIcon from "../../Components/Icons/MilesIcon";
-import SedanIcon from "../../Components/Icons/SedanIcon";
-import SuvIcon from "../../Components/Icons/SuvIcon";
-import ViewAll from "../../Components/Icons/ViewAll";
-import ViewMore from "../../Components/Icons/ViewMore";
+import CoupeIcon from "../../Components/icons/CoupeIcon";
+import FuelIcon from "../../Components/icons/FuelIcon";
+import HatchbackIcon from "../../Components/icons/HatchbackIcon";
+import HybridIcon from "../../Components/icons/HybridIcon";
+import JampIcon from "../../Components/icons/JampIcon";
+import ManualIcon from "../../Components/icons/ManualIcon";
+import MilesIcon from "../../Components/icons/MilesIcon";
+import SedanIcon from "../../Components/icons/SedanIcon";
+import SuvIcon from "../../Components/icons/SuvIcon";
+import ViewAll from "../../Components/icons/ViewAll";
+import ViewMore from "../../Components/icons/ViewMore";
 function Home() {
     const vehiclesData = [
         {

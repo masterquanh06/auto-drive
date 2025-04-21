@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CarsImg from "../../assets/images/Cars.png";
 import Car1 from "../../assets/images/Ford_Transit_2021.png";
 import Car2 from "../../assets/images/Corolla2023.png";
@@ -15,7 +15,6 @@ import Car12 from "../../assets/images/Peugeot_3008.jpg";
 import Car13 from "../../assets/images/Maybach_S680.jpg";
 import Car14 from "../../assets/images/Honda.jpg";
 import Car15 from "../../assets/images/BMW_X5.webp";
-
 import JampIcon from "../../Components/Icons/JampIcon";
 import MilesIcon from "../../Components/Icons/MilesIcon";
 import { FuelIcon } from "lucide-react";
@@ -23,7 +22,10 @@ import ManualIcon from "../../Components/Icons/ManualIcon";
 import ViewMore from "../../Components/Icons/ViewMore";
 
 function Listings() {
+
+
   const vehiclesData = [
+
     {
       id: 1,
       name: "Ford Transit - 2021",
@@ -35,32 +37,32 @@ function Listings() {
       type: "used",
     },
     {
-      id: 2,
+      id: 4,
       name: "Corolla Altis - 2023",
       price: 45000,
-      image: Car2,
+      image: Car4,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },
-      type: "used",
+      status: "used",
     },
     {
       id: 3,
       name: "New GLC - 2023",
       price: 95000,
-      image: Car3,
+      image: Car2,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" },
       tag: "Low Mileage",
-      type: "new",
+      status: "new",
     },
     {
       id: 4,
       name: "Audi A6 3.5 - New",
       price: 58000,
-      image: Car4,
+      image: Car3,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" },
-      type: "new",
+      status: "new",
     },
     {
       id: 5,
@@ -70,151 +72,123 @@ function Listings() {
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
       tag: "Great Price",
-      type: "new",
+      status: "new",
     },
     {
       id: 6,
       name: 'VinFast VF 9',
-      price: 63000,
-      image: Car6,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
       tag: "Great Price",
-      type: "new",
+      status: "new",
+      image: Car6
     },
     {
       id: 7,
       name: 'Ford F-150 Lightning 2024',
-      price: 35000,
-      image: Car7,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
       tag: "Great Price",
-      type: "new",
+      status: "new",
+      price: '$35,000',
+      image: Car7,
     },
     {
       id: 8,
       name: 'BMW 8 Series',
-      price: 85000,
-      image: Car8,
       des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
       specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
       tag: "Great Price",
-      type: "new",
+      status: "new",
+      price: '$85,000',
+      image: Car8,
     },
     {
       id: 9,
       name: 'Mercedes-Benz',
-      price: 52000,
+      type: 'SUV',
+      details: 'Automatic • 20,000 km',
+      price: '$52,000',
       image: Car9,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 10,
       name: '2025 Audi RS6',
-      price: 32000,
+      type: 'SUV',
+      details: 'Automatic • 20,000 km',
+      price: '$32,000',
       image: Car10,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 11,
-      name: 'Peugeot 408',
-      price: 21000,
+      name: ' peugeot 408',
+      type: 'Sedan',
+      details: 'Automatic • 20,000 km',
+      price: '$21,000',
       image: Car11,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 12,
       name: 'Peugeot 3008 Hybrid4',
-      price: 19000,
+      type: 'Electric',
+      details: 'Automatic • 20,000 km',
+      price: '$19,000',
       image: Car12,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 13,
       name: 'Mercedes Maybach S680 V12',
-      price: 85000,
+      type: 'SUV',
+      details: 'Automatic • 20,000 km',
+      price: '$85,000',
       image: Car13,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 14,
       name: 'Honda Civic 2024',
-      price: 15000,
+      type: 'SUV',
+      details: 'Automatic • 20,000 km',
+      price: '$15,000',
       image: Car14,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
     {
       id: 15,
-      name: 'BMW X5 2025',
-      price: 68000,
+      name: ' BMW X5 2025',
+      type: 'Sedan',
+      details: 'Automatic • 20,000 km',
+      price: '$68,000',
       image: Car15,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
     },
-  ];
 
+  ];
   const [filter, setFilter] = useState("Typecars");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("All Types");
   const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
-
-  useEffect(() => {
-    let filtered = [...vehiclesData];
-
-    if (filter === "newCars") {
-      filtered = filtered.filter((v) => v.type === "new");
-    } else if (filter === "usedCars") {
-      filtered = filtered.filter((v) => v.type === "used");
+  const handleFilter = (type: string) => {
+    setFilter(type);
+    if (type === "Typecars") {
+      setFilteredVehicles(vehiclesData);
+    } else if (type === "newCars") {
+      setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.type === "new"));
+    } else if (type === "usedCars") {
+      setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.type === "used"));
     }
-
-    if (selectedType !== "All Types") {
-      filtered = filtered.filter(
-        (v) => v.type?.toLowerCase() === selectedType.toLowerCase()
-      );
-    }
-
-    if (searchTerm.trim()) {
-      filtered = filtered.filter((v) =>
-        v.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    setFilteredVehicles(filtered);
-  }, [filter, selectedType, searchTerm]);
-
+  };
   return (
     <div className="bg-gray-100 min-h-screen">
       <div
         className="w-full h-screen bg-cover bg-center bg-no-repeat -z-10"
         style={{ backgroundImage: `url(${CarsImg})` }}
-      />
+      >
+
+      </div>
       <main className="container mx-auto px-4 py-8">
         <h2 className="text-4xl font-bold mb-6">Available Cars</h2>
 
         <div className="flex flex-wrap gap-4 mb-6">
           <select
-            className="border rounded p-2"
+            className=" border rounded"
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
           >
@@ -223,6 +197,7 @@ function Listings() {
             <option>Used</option>
           </select>
 
+
           <input
             type="text"
             placeholder="Search by model..."
@@ -230,13 +205,15 @@ function Listings() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+
+
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
           {filteredVehicles.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="bg-white rounded-lg border border-gray-200 relative"
+              className="bg-white rounded-lg border border-gray-200 overflow relative"
             >
               {vehicle.tag && (
                 <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
@@ -249,29 +226,34 @@ function Listings() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">{vehicle.name}</h3>
-                <p className="truncate text-gray-700">{vehicle.des}</p>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {vehicle.name}
+                </h3>
+                <p className="truncate text-gray-700">
+                  {vehicle.des}
+                </p>
                 <JampIcon />
                 <div className="flex justify-between text-sm text-gray-600 mb-2 mt-3">
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <MilesIcon />
                     <span className="mt-1">{vehicle.specs?.mileage || "N/A"}</span>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <FuelIcon />
                     <span className="mt-1">{vehicle.specs?.fuel || "N/A"}</span>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col justify-center items-center">
                     <ManualIcon />
                     <span className="mt-1">{vehicle.specs?.transmission || "N/A"}</span>
                   </div>
                 </div>
                 <JampIcon />
-                <div className="flex justify-between mt-2">
+                <div className="flex w-full justify-between mt-2">
                   <p className="text-xl font-bold text-black mt-1">
                     ${vehicle.price.toLocaleString()}
                   </p>
                   <ViewMore />
+
                 </div>
               </div>
             </div>
