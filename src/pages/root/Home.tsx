@@ -9,12 +9,12 @@ import Car4 from "../../assets/images/Corolla2023.png";
 import Car1 from "../../assets/images/Ford_2023.png";
 import Car2 from "../../assets/images/Ford_Transit_2021.png";
 import HomeBackGround from "../../assets/images/HomeBackGround.jpg";
-import LogoAudi from "../../assets/images/logoAudi.png"
-import LogoFord from "../../assets/images/logoFord.jpg"
-import LogoBMW from "../../assets/images/logoBmw.png"
-import LogoMer from "../../assets/images/logoMer.png"
-import LogoPeugeot from "../../assets/images/logoAudi.png"
-import LogoVolkswagen from "../../assets/images/logoVolkswagen.png"
+import LogoAudi from "../../assets/images/logoAudi.png";
+import LogoBMW from "../../assets/images/logoBmw.png";
+import LogoFord from "../../assets/images/logoFord.jpg";
+import LogoMer from "../../assets/images/logoMer.png";
+import LogoPeugeot from "../../assets/images/LogoPeugeot.png";
+import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
 
 
 import { Input } from "antd";
@@ -39,7 +39,7 @@ function Home() {
             des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },
             tag: "Great Price",
-            status: "used", // Xe đã qua sử dụng
+            status: "used",
         },
         {
             id: 2,
@@ -49,7 +49,7 @@ function Home() {
             des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" },
             tag: "Low Mileage",
-            status: "new", // Xe mới
+            status: "new",
         },
         {
             id: 3,
@@ -58,7 +58,7 @@ function Home() {
             image: Car3,
             des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" },
-            status: "new", // Xe mới
+            status: "new",
         },
         {
             id: 4,
@@ -67,7 +67,7 @@ function Home() {
             image: Car4,
             des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },
-            status: "used", // Xe đã qua sử dụng
+            status: "used",
         },
         {
             id: 5,
@@ -77,27 +77,27 @@ function Home() {
             des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
             specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
             tag: "Great Price",
-            status: "new", // Xe mới
+            status: "new",
         },
     ];
-    const [filter, setFilter] = useState("inStock"); // Mặc định là "In Stock"
+    const [filter, setFilter] = useState("inStock");
     const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
 
     const handleFilter = (status: string) => {
         setFilter(status);
         if (status === "inStock") {
-            setFilteredVehicles(vehiclesData); // Hiển thị tất cả xe
+            setFilteredVehicles(vehiclesData);
         } else if (status === "newCars") {
-            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "new")); // Chỉ xe mới
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "new"));
         } else if (status === "usedCars") {
-            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "used")); // Chỉ xe đã qua sử dụng
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "used"));
         }
     };
     return (
         <nav className=" bg-white shadow-md  relative z-10">
 
             <div
-                className="w-full h-screen bg-cover bg-center bg-no-repeat -z-10"
+                className="w-full h-screen bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${HomeBackGround})` }}
             >
                 <div className=" pt-24 py-6 relative z-10 pb-24">
@@ -331,17 +331,14 @@ function Home() {
                     <section className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 
                         <div className="bg-white rounded-lg  overflow-hidden relative">
-                            {/* Thẻ danh mục (Category) */}
                             <span className="absolute top-4 left-4 bg-white text-gray-700 text-sm px-3 py-2 rounded-full font-semibold">
                                 Sound
                             </span>
-                            {/* Hình ảnh */}
                             <img
                                 src={Blog_1}
                                 alt="Toyota Supra"
                                 className="w-full h-80 object-fit rounded-lg"
                             />
-                            {/* Thông tin bài blog */}
                             <p className="text-gray-700 text-sm mt-4 text-start">April 17, 2025</p>
                             <h2 className="text-lg font-semibold text-gray-800 mt-2 text-start">
                                 <a href="#" className="hover:text-blue-600">
@@ -350,7 +347,6 @@ function Home() {
                             </h2>
                         </div>
                         <div className="bg-white rounded-lg  overflow-hidden relative">
-                            {/* Thẻ danh mục (Category) */}
                             <span className="absolute top-4 left-4 bg-white text-gray-700 text-sm px-3 py-2 rounded-full font-semibold">
                                 Accessories
                             </span>
