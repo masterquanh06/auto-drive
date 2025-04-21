@@ -66,7 +66,7 @@ export default function Cart() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       {/* Shopping Cart Section */}
-      <div className="flex max-lg:flex-col gap-4 w-4/5 max-lg:w-full  h-full  bg-gray-100 rounded-2xl p-4 ">
+      <div className="flex  max-lg:flex-col gap-4 w-4/5 max-lg:w-full  h-full bg-gray-100 rounded-2xl p-4 ">
         <div className="w-full flex items-start flex-col p-6">
           <div className="flex items-center mb-4 text-blue-500  text-lg font-semibold cursor-pointer py-2">
             <Link className="flex items-center hover:opacity-70" to={"/home"}>
@@ -118,7 +118,7 @@ export default function Cart() {
         </div>
 
         {/* Card Details Section */}
-        <div className="w-full h-80  flex gap-5 flex-col  justify-start mx-auto  max-w-sm bg-[#A0CDD0] text-white rounded-lg shadow-lg p-6  lg:mt-8">
+        <div className="w-full h-86 xl:h-80 flex gap-5 flex-col  justify-start mx-auto  max-w-sm bg-[#A0CDD0] text-white rounded-lg shadow-lg p-6  lg:mt-40">
           <label className="text-5xl mb-2">Cart</label>
           <div className="flex justify-between mb-2">
             <span>Subtotal</span>
