@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router';
-import Background from '../assets/images/Background.jpg';
+import Background from '../../assets/images/Background.jpg';
 
 
 const ResetPassword = () => {

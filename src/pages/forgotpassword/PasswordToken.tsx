@@ -1,7 +1,7 @@
 import { Button, Form, Input } from 'antd';
 import { MailOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router';
-import Background from '../assets/images/Background.jpg';
+import Background from '../../assets/images/Background.jpg';
 
 
 
@@ -38,7 +38,7 @@ const PasswordToken = () => {
             </Link>
           </div>
 
-          <h1 className="text-center mb-4 sm:mb-6 text-xl sm:text-2xl font-semibold text-gray-700">
+          <h1 className="text-start mb-4 sm:mb-6 text-xl  font-semibold text-gray-700">
             Nhập mã xác nhận để đặt lại mật khẩu
           </h1>
 

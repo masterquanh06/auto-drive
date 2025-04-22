@@ -1,19 +1,11 @@
 import { Button, Form, Input } from 'antd';
 import { MailOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-<<<<<<< Updated upstream
 import { Link, useNavigate } from 'react-router';
-=======
-import { Link, useNavigate } from 'react-router'; // sửa từ 'react-router' sang 'react-router-dom'
->>>>>>> Stashed changes
-import Background from '../assets/images/Background.jpg';
+import Background from '../../assets/images/Background.jpg';
 
 
 const ForgotPassword = () => {
-<<<<<<< Updated upstream
   const navigate = useNavigate(); 
-=======
-  const navigate = useNavigate(); // sử dụng hook điều hướng
->>>>>>> Stashed changes
 
   type FieldType = {
     email?: string;
@@ -37,17 +29,17 @@ const ForgotPassword = () => {
           className="w-full max-w-md"
           onFinish={onFinish} // xử lý submit tại đây
         >
-          <div className="text-base sm:text-lg mb-4 sm:mb-6">
+          <div className="text-base text-lg mb-4 sm:mb-6">
             <Link
               to="/login"
-              className="text-blue-500 hover:text-violet-600 flex items-center"
+              className="text-blue-500 hover:text-violet-600 flex gap-1 items-center"
             >
-              <ArrowLeftOutlined className="mr-1" />
+              <ArrowLeftOutlined />
               Quay lại đăng nhập
             </Link>
           </div>
 
-          <h1 className="text-center mb-4 sm:mb-6 text-xl sm:text-2xl font-semibold text-gray-700">
+          <h1 className="text-start mb-4 sm:mb-6 text-xl font-semibold text-gray-700">
             Nhập email để nhận liên kết đặt lại mật khẩu
           </h1>
 
