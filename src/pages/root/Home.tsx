@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import Car3 from "../../assets/images/Audi_A6.png";
 import Background_RR from "../../assets/images/Background_RR.jpg";
 import Blog_1 from "../../assets/images/blog1.png";
@@ -96,8 +97,9 @@ function Home() {
                         <h3 className="text-3xl font-semibold text-gray-800">
                             Explore Our Premium Brands
                         </h3>
-
-                        <ViewAll />
+                        
+                            <ViewAll />
+                        
                     </div>
                     <div className="container mx-auto mt-10">
 

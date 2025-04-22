@@ -1,7 +1,9 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router';
 import Background from '../../assets/images/Background.jpg';
-const Register = () => {
+
+
+const SignUp = () => {
   type FieldType = {
     email?: string;
     username?: string;
@@ -132,4 +134,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;

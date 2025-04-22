@@ -39,57 +39,58 @@ const Login = () => {
           name="login"
           initialValues={{ remember: true }}
           autoComplete="off"
-          className="w-full max-w-lg"
+          className="w-full max-w-md sm:max-w-lg"
           layout="vertical"
           onFinish={onFinish}
         >
-          <h1 className="text-center mb-6 text-xl font-semibold text-gray-700">
+          <h1 className="text-center mb-4 sm:mb-6 text-lg sm:text-xl md:text-2xl font-semibold text-gray-700">
             Nhập đầy đủ thông tin để truy cập vào tài khoản!
           </h1>
 
           <Form.Item<FieldType>
-            label={<span className="text-gray-700">Username</span>}
+            label={<span className="text-gray-700 text-sm sm:text-base">Tên tài khoản</span>}
             name="username"
             rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập!' }]}
           >
-            <Input placeholder="Tên đăng nhập" size="large" />
+            <Input placeholder="Tên đăng nhập" size="large" className="text-sm sm:text-base" />
           </Form.Item>
 
           <Form.Item<FieldType>
-            label={<span className="text-gray-700">Password</span>}
+            label={<span className="text-gray-700 text-sm sm:text-base">Mật khẩu</span>}
             name="password"
             rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
           >
-            <Input.Password placeholder="Mật khẩu" size="large" />
+            <Input.Password placeholder="Mật khẩu" size="large" className="text-sm sm:text-base" />
           </Form.Item>
 
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-row sm:flex-row items-center justify-between mb-4 sm:mb-6 space-y-3 sm:space-y-0">
             <Form.Item<FieldType>
               name="remember"
               valuePropName="checked"
               noStyle
             >
-              <Checkbox>Nhớ mật khẩu</Checkbox>
+              <Checkbox className="text-sm sm:text-base">Nhớ mật khẩu</Checkbox>
             </Form.Item>
-            <Link to="#">
-              <p className="text-blue-500 hover:text-violet-600">Quên mật khẩu?</p>
+            <Link to="/forgotpassword">
+              <p className="text-blue-500 hover:text-violet-600 text-sm sm:text-base">Quên mật khẩu?</p>
             </Link>
           </div>
 
           <Form.Item>
             <Button
+              
               type="primary"
               htmlType="submit"
               size="large"
-              className="w-full"
+              className="w-full text-sm sm:text-base"
             >
               Đăng nhập
             </Button>
           </Form.Item>
 
-          <div className="flex items-center justify-center my-6">
+          <div className="flex items-center justify-center my-4 sm:my-6">
             <div className="flex-grow h-px bg-gray-300" />
-            <span className="px-4 text-gray-700">Or</span>
+            <span className="px-4 text-gray-700 text-sm sm:text-base">Or</span>
             <div className="flex-grow h-px bg-gray-300" />
           </div>
 
@@ -97,13 +98,13 @@ const Login = () => {
             <Button size="large" className="border-gray-300">
               <img
                 src={GgIcon}
-                alt="Facebook Icon"
+                alt="Google Icon"
                 className='w-4'
                 style={{ width: '20px', height: '20px', marginRight: '8px' }}
               />
-              Đăng nhập bằng Facebook
+              Đăng nhập bằng Google
             </Button>
-            <Button size="large" className="border-gray-300">
+            <Button size="large" className="border-gray-300 flex items-center justify-center text-sm sm:text-base">
               <img
                 src={FbIcon}
                 alt="Facebook Icon"
@@ -114,17 +115,17 @@ const Login = () => {
             </Button>
           </div>
 
-          <div className="text-center mt-6 flex items-center justify-center">
-            <span className="text-gray-700 text-[16px]">Chưa có tài khoản?</span>
-            <Link to="/signup" >
-              <p className="text-blue-500 hover:text-violet-600 text-[16px] ml-1">Đăng ký</p>
+          <div className="text-center mt-4 sm:mt-6 flex items-center justify-center">
+            <span className="text-gray-700 text-sm sm:text-base">Chưa có tài khoản?</span>
+            <Link to="/signup">
+              <p className="text-blue-500 hover:text-violet-600 text-sm sm:text-base ml-1">Đăng ký</p>
             </Link>
           </div>
         </Form>
       </div>
 
       {/* Image Section */}
-      <div className="hidden md:block w-full md:w-1/2">
+      <div className="hidden lg:block w-full lg:w-1/2">
         <img
           src={Background}
           alt="Login Background"
