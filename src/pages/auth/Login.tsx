@@ -32,9 +32,9 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="h-screen flex flex-col md:flex-row">
       {/* Form Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8  bg-gradient-to-r from-violet-200 to-violet-300">
+      <div className="w-full h-full md:w-1/2 flex items-center justify-center p-8  bg-gradient-to-r from-violet-200 to-violet-300">
         <Form
           name="login"
           initialValues={{ remember: true }}
@@ -93,7 +93,7 @@ const Login = () => {
             <div className="flex-grow h-px bg-gray-300" />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 max-xl:grid-cols-1  gap-4">
             <Button size="large" className="border-gray-300">
               <img
                 src={GgIcon}

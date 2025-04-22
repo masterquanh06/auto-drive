@@ -20,158 +20,25 @@ import JampIcon from "../../Components/Icons/JampIcon";
 import MilesIcon from "../../Components/Icons/MilesIcon";
 import { FuelIcon } from "lucide-react";
 import ManualIcon from "../../Components/Icons/ManualIcon";
-import ViewMore from "../../Components/Icons/ViewMore";
+import ViewMore from "../../Components/Icons/AddToCartIcon";
 import { Pagination } from "antd";
 function Listings() {
   const vehiclesData = [
-    {
-      id: 1,
-      name: "Ford Transit - 2021",
-      price: 22000,
-      image: Car1,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },
-      tag: "Great Price",
-      type: "used",
-    },
-    {
-      id: 2,
-      name: "Corolla Altis - 2023",
-      price: 45000,
-      image: Car2,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },
-      type: "used",
-    },
-    {
-      id: 3,
-      name: "New GLC - 2023",
-      price: 95000,
-      image: Car3,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" },
-      tag: "Low Mileage",
-      type: "new",
-    },
-    {
-      id: 4,
-      name: "Audi A6 3.5 - New",
-      price: 58000,
-      image: Car4,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" },
-      type: "new",
-    },
-    {
-      id: 5,
-      name: "BMW M4",
-      price: 80000,
-      image: Car5,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 6,
-      name: 'VinFast VF 9',
-      price: 63000,
-      image: Car6,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 7,
-      name: 'Ford F-150 Lightning 2024',
-      price: 35000,
-      image: Car7,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 8,
-      name: 'BMW 8 Series',
-      price: 85000,
-      image: Car8,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 9,
-      name: 'Mercedes-Benz',
-      price: 52000,
-      image: Car9,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 10,
-      name: '2025 Audi RS6',
-      price: 32000,
-      image: Car10,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 11,
-      name: 'Peugeot 408',
-      price: 21000,
-      image: Car11,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 12,
-      name: 'Peugeot 3008 Hybrid4',
-      price: 19000,
-      image: Car12,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 13,
-      name: 'Mercedes Maybach S680 V12',
-      price: 85000,
-      image: Car13,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 14,
-      name: 'Honda Civic 2024',
-      price: 15000,
-      image: Car14,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
-    {
-      id: 15,
-      name: 'BMW X5 2025',
-      price: 68000,
-      image: Car15,
-      des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate",
-      specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" },
-      tag: "Great Price",
-      type: "new",
-    },
+    { id: 1,  name: "Ford Transit - 2021",          price: 22000, image: Car1,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },    tag: "Great Price", type: "used" },
+    { id: 2,  name: "Corolla Altis - 2023",         price: 45000, image: Car2,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },      type: "used" },
+    { id: 3,  name: "New GLC - 2023",               price: 95000, image: Car3,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "50 Miles",     fuel: "Petrol", transmission: "Automatic" }, tag: "Low Mileage", type: "new" },
+    { id: 4,  name: "Audi A6 3.5 - New",            price: 58000, image: Car4,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "5,000 Miles",  fuel: "Petrol", transmission: "Automatic" }, type: "new" },
+    { id: 5,  name: "BMW M4",                       price: 80000, image: Car5,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 6,  name: "VinFast VF 9",                 price: 63000, image: Car6,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 7,  name: "Ford F-150 Lightning 2024",    price: 35000, image: Car7,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 8,  name: "BMW 8 Series",                 price: 85000, image: Car8,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 9,  name: "Mercedes-Benz",                price: 52000, image: Car9,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 10, name: "2025 Audi RS6",                price: 32000, image: Car10, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 11, name: "Peugeot 408",                  price: 21000, image: Car11, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 12, name: "Peugeot 3008 Hybrid4",         price: 19000, image: Car12, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 13, name: "Mercedes Maybach S680 V12",    price: 85000, image: Car13, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 14, name: "Honda Civic 2024",             price: 15000, image: Car14, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+    { id: 15, name: "BMW X5 2025",                  price: 68000, image: Car15, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
   ];
 
   const [filter, setFilter] = useState("Typecars");
@@ -222,7 +89,7 @@ function Listings() {
 
         <div className="flex flex-wrap gap-4 mb-6">
           <select
-            className="border rounded p-2"
+            className="border border-gray-300 rounded p-2"
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
           >
@@ -234,7 +101,7 @@ function Listings() {
           <input
             type="text"
             placeholder="Search by model..."
-            className="p-2 border rounded flex-1"
+            className="p-2 border border-gray-300 rounded flex-1"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

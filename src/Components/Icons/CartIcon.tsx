@@ -1,4 +1,4 @@
-export default function Cart() {
+export default function CartIcon() {
   return (
     <div className="cursor-pointer  " >
       <svg

@@ -11,9 +11,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="h-screen flex flex-col md:flex-row">
       {/* Form Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gradient-to-r from-violet-200 to-violet-300">
+      <div className="w-full h-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gradient-to-r from-violet-200 to-violet-300">
         <Form
           name="register"
           initialValues={{ remember: true }}
