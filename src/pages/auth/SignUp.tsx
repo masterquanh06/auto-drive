@@ -1,7 +1,9 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router';
 import Background from '../../assets/images/Background.jpg';
-const Register = () => {
+
+
+const SignUp = () => {
   type FieldType = {
     email?: string;
     username?: string;
@@ -11,7 +13,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="h-dvh flex flex-col md:flex-row">
       {/* Form Section */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gradient-to-r from-violet-200 to-violet-300">
         <Form
@@ -132,4 +134,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;
