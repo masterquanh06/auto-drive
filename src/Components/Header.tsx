@@ -1,17 +1,16 @@
 import { UserOutlined } from '@ant-design/icons';
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Avatar } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "../context/auth.context";
+import { clearCart, fetchCart, removeCartItem, updateCartItemQuantity } from "../services/cartService";
+import { CartItem } from "../types/type";
 import CartIcon from "./Icons/CartIcon";
 import DeleteIcon from "./Icons/DeleteIcon";
-import MenuIcon from "./Icons/MenuIcon";
 import DescreaseIcon from "./Icons/DescreaseIcon";
 import IncreaseICon from "./Icons/IncreaseICon";
-import MenuIcon from "./Icons/MenuIcon";import IncreaseICon from "./Icons/IncreaseICon";
-import { CartItem } from "../types/type";
-import { fetchCart, updateCartItemQuantity, removeCartItem, clearCart } from "../services/cartService";
+import MenuIcon from "./Icons/MenuIcon";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +26,21 @@ export default function Header() {
     queryKey: ["cart"],
     queryFn: fetchCart,
   });
+  useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY >= window.innerHeight);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+    // useEffect(() => {
+    //   const handleClickOutside = (event) => {
+    //     if (isCartModalOpen && cartModalRef.current && !cartModalRef.current.contains(event.target)) {
+    //       setIsCartModalOpen(false);
+    //     }
+    //   };
+    //   document.addEventListener("mousedown", handleClickOutside);
+    //   return () => document.removeEventListener("mousedown", handleClickOutside);
+    // }, [isCartModalOpen]);
   const updateQuantityMutation = useMutation({
     mutationFn: ({ itemId, delta }: { itemId: number; delta: number }) =>
       updateCartItemQuantity(itemId, delta),
@@ -53,7 +66,7 @@ export default function Header() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleCartModal = () => setIsCartModalOpen(!isCartModalOpen);
 
- 
+
 
   const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
   const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -69,7 +82,7 @@ export default function Header() {
     removeItemMutation.mutate(itemId);
   };
 
- 
+
 
   const renderCartItems = () => (
     <div>
@@ -116,10 +129,10 @@ export default function Header() {
       <div className="flex justify-between border-t border-gray-300 pt-3">
         <p>Cart has {totalQuantity} item(s)</p>
         <div className="bg-gray-100 hover:bg-gray-200 p-1 rounded-2xl "
-        onClick={(e) => {
-          e.stopPropagation(); 
-          toggleCartModal(); 
-        }}>
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleCartModal();
+          }}>
           <Link to="/cart">Go to Cart</Link>
         </div>
       </div>
@@ -156,9 +169,8 @@ export default function Header() {
               <CartIcon />
               {/* Always show the badge, even when totalQuantity is 0 */}
               <span
-                className={`absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-xs animate-pulse ${
-                  totalQuantity > 0 ? "bg-red-500 text-white" : "bg-gray-300 text-gray-700"
-                }`}
+                className={`absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-xs animate-pulse ${totalQuantity > 0 ? "bg-red-500 text-white" : "bg-gray-300 text-gray-700"
+                  }`}
               >
                 {totalQuantity}
               </span>
@@ -200,9 +212,8 @@ export default function Header() {
               <CartIcon />
               {/* Always show the badge for mobile view as well */}
               <span
-                className={`absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-xs animate-pulse ${
-                  totalQuantity > 0 ? "bg-red-500 text-white" : "bg-gray-300 text-gray-700"
-                }`}
+                className={`absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-xs animate-pulse ${totalQuantity > 0 ? "bg-red-500 text-white" : "bg-gray-300 text-gray-700"
+                  }`}
               >
                 {totalQuantity}
               </span>

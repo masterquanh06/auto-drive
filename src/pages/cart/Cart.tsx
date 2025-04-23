@@ -1,11 +1,11 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchCart, updateCartItemQuantity, removeCartItem, clearCart } from "../../services/cartService";
-import { CartItem } from "../../types/type";
+import { Link } from "react-router";
+import DeleteIcon from "../../Components/Icons/DeleteIcon";
 import DescreaseIcon from "../../Components/Icons/DescreaseIcon";
 import IncreaseICon from "../../Components/Icons/IncreaseICon";
-import DeleteIcon from "../../Components/Icons/DeleteIcon";
-import { Link } from "react-router";
+import { clearCart, fetchCart, removeCartItem, updateCartItemQuantity } from "../../services/cartService";
+import { CartItem } from "../../types/type";
 
 export default function Cart() {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -66,9 +66,9 @@ export default function Cart() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-        <Link to="/">Quay Lại</Link>
+      <Link to="/">Quay Lại</Link>
       <h1 className="text-3xl font-bold my-6">Giỏ Hàng</h1>
-      
+
       {isLoading ? (
         <p>Loading cart...</p>
       ) : cartItems.length === 0 ? (
@@ -76,12 +76,12 @@ export default function Cart() {
       ) : (
         <div className="grid gap-6">
           {cartItems.map((item) => (
-            <div 
+            <div
               key={item.id}
               className="flex items-center border border-gray-300 rounded-lg p-4 hover:shadow-md transition-shadow"
             >
-              <img 
-                src={item.image} 
+              <img
+                src={item.image}
                 alt={item.name}
                 className="w-24 h-24 object-cover rounded mr-4"
               />
@@ -91,7 +91,7 @@ export default function Cart() {
                   Đơn giá: ${item.price.toLocaleString()}
                 </p>
                 <div className="flex items-center mt-2">
-                  <button 
+                  <button
                     onClick={() => handleQuantityChange(item.id, -1)}
                     className="px-2 py-1 bg-gray-200 rounded disabled:opacity-50"
                     disabled={item.quantity === 1}
@@ -99,7 +99,7 @@ export default function Cart() {
                     <DescreaseIcon />
                   </button>
                   <span className="px-4">{item.quantity}</span>
-                  <button 
+                  <button
                     onClick={() => handleQuantityChange(item.id, 1)}
                     className="px-2 py-1 bg-gray-200 rounded"
                   >
@@ -111,7 +111,7 @@ export default function Cart() {
                 <p className="font-semibold">
                   ${(item.price * item.quantity).toLocaleString()}
                 </p>
-                <button 
+                <button
                   onClick={() => handleRemoveItem(item.id)}
                   className="text-red-500 mt-2 hover:underline"
                 >
@@ -138,9 +138,9 @@ export default function Cart() {
               <span>Tổng cộng:</span>
               <span>${total.toLocaleString()}</span>
             </div>
-            <button 
+            <button
               onClick={handleCheckout}
-              className="w-full mt-4 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full mt-4 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
             >
               Đặt hàng
             </button>
@@ -172,7 +172,7 @@ export default function Cart() {
       )}
 
       {showSuccessMessage && (
-        <div className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg">
+        <div className="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg">
           Đặt hàng thành công!
         </div>
       )}
