@@ -9,10 +9,10 @@ import router from "./router";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <QueryClientProvider client={queryClient}>
+    <StrictMode> 
+        <QueryClientProvider client={queryClient}> 
             <AuthProvider>
-                <RouterProvider router={router} />
+                <RouterProvider router={router} /> 
             </AuthProvider>
         </QueryClientProvider>
     </StrictMode>

@@ -9,6 +9,7 @@ import Blog from "../pages/blog/Blog";
 import ForgotPassword from "../pages/forgotpassword/ForgotPassword";
 import PasswordToken from "../pages/forgotpassword/PasswordToken";
 import ResetPassword from "../pages/forgotpassword/ResetPassword";
+import Cart from "../pages/cart/Cart";
 const AuthLayout = () => {
     return <Outlet/>;  
 }
@@ -23,6 +24,8 @@ export default createBrowserRouter([{
         element: <PasswordToken/>, path: '/passwordtoken'
     }, {
         element: <ResetPassword/>, path: '/resetpassword'
+    }, {
+        element:<Cart/>,path:'/cart'
     },
     ]
 }, {

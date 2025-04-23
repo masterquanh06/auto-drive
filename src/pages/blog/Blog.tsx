@@ -111,7 +111,7 @@ export default function Blog() {
             title: <Link to="/">Home</Link>,
           },
           {
-            title: <Link to="/blog"><p className='text-amber-600'>Blog</p></Link>,
+            title: <div><p className='text-amber-600'>Blog</p></div>,
           },
 
         ]}
