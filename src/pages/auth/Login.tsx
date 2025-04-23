@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import Background from '../../assets/images/Background.jpg';
 import FbIcon from '../../assets/images/Fb-Icon.jpg';
 import GgIcon from '../../assets/images/Gg-Icon.jpg';
+import { useAuth } from '../../context/auth.context';
 import { useLogin } from '../../hooks/useAuth';
 const Login = () => {
   type FieldType = {
@@ -10,11 +11,22 @@ const Login = () => {
     password?: string;
     remember?: boolean;
   };
-
+  const { login } = useAuth();
   const navigate = useNavigate();
+
   const { mutate: loginMutate, isPending } = useLogin(
     (data) => {
+      login(
+        {
+          ...data.user,
+          username: data.user.name,
+          avatar: ''
+        },
+        data.token
+      );
+
       localStorage.setItem('token', data.token);
+
       console.log('Login success', data);
       navigate("/");
     },
@@ -24,12 +36,12 @@ const Login = () => {
   );
 
   const onFinish = (values: any) => {
-    // call api login
     loginMutate({
       username: values.username,
       password: values.password
     });
-  }
+  };
+
 
   return (
     <div className="h-screen flex flex-col md:flex-row">

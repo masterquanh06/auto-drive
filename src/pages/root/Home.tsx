@@ -19,6 +19,8 @@ import LogoVolkswagen from "../../assets/images/logoVolkswagen.png";
 
 
 import { Input } from "antd";
+import { Link } from "react-router";
+import AddToCart from "../../Components/Icons/AddToCartIcon";
 import CoupeIcon from "../../Components/Icons/CoupeIcon";
 import FuelIcon from "../../Components/Icons/FuelIcon";
 import HatchbackIcon from "../../Components/Icons/HatchbackIcon";
@@ -29,15 +31,14 @@ import MilesIcon from "../../Components/Icons/MilesIcon";
 import SedanIcon from "../../Components/Icons/SedanIcon";
 import SuvIcon from "../../Components/Icons/SuvIcon";
 import ViewAll from "../../Components/Icons/ViewAll";
-import AddToCart from "../../Components/Icons/AddToCartIcon";
 import ViewMoreIcon from "../../Components/Icons/ViewMoreIcon";
 function Home() {
     const vehiclesData = [
-      { id: 1,  name: "Ford Transit - 2021",          price: 22000, image: Car1,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" },    tag: "Great Price", type: "used" },
-    { id: 2,  name: "Corolla Altis - 2023",         price: 45000, image: Car2,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" },      type: "used" },
-    { id: 3,  name: "New GLC - 2023",               price: 95000, image: Car3,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "50 Miles",     fuel: "Petrol", transmission: "Automatic" }, tag: "Low Mileage", type: "new" },
-    { id: 4,  name: "Audi A6 3.5 - New",            price: 58000, image: Car4,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "5,000 Miles",  fuel: "Petrol", transmission: "Automatic" }, type: "new" },
-    { id: 5,  name: "BMW M4",                       price: 80000, image: Car5,  des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles",     fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
+        { id: 1, name: "Ford Transit - 2021", price: 22000, image: Car1, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "40,300 Miles", fuel: "Diesel", transmission: "Manual" }, tag: "Great Price", type: "used" },
+        { id: 2, name: "Corolla Altis - 2023", price: 45000, image: Car2, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "15,000 Miles", fuel: "Petrol", transmission: "CVT" }, type: "used" },
+        { id: 3, name: "New GLC - 2023", price: 95000, image: Car3, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "50 Miles", fuel: "Petrol", transmission: "Automatic" }, tag: "Low Mileage", type: "new" },
+        { id: 4, name: "Audi A6 3.5 - New", price: 58000, image: Car4, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "5,000 Miles", fuel: "Petrol", transmission: "Automatic" }, type: "new" },
+        { id: 5, name: "BMW M4", price: 80000, image: Car5, des: "4.0 D5 PowerPulse Momentum 5dr AW… Geartronic Estate", specs: { mileage: "10 Miles", fuel: "Diesel", transmission: "Automatic" }, tag: "Great Price", type: "new" },
     ];
     const [filter, setFilter] = useState("inStock");
     const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
@@ -47,9 +48,9 @@ function Home() {
         if (status === "inStock") {
             setFilteredVehicles(vehiclesData);
         } else if (status === "newCars") {
-            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "new"));
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.type === "new"));
         } else if (status === "usedCars") {
-            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.status === "used"));
+            setFilteredVehicles(vehiclesData.filter((vehicle) => vehicle.type === "used"));
         }
     };
     return (
@@ -63,7 +64,7 @@ function Home() {
                     <div className="container mx-auto text-center">
                         <span className="text-white  text-[16px]">Find car for sale and for rent near you</span>
                         <h1 className="text-6xl font-semibold text-white mb-[60px] mt-8">Find Your Perfect Car</h1>
-                        <Input placeholder="Find your favourite car"  size="large" style={{ width: 900, height: 50, borderRadius: 99, marginBottom: 65 }} />;
+                        <Input placeholder="Find your favourite car" size="large" style={{ width: 900, height: 50, borderRadius: 99, marginBottom: 65 }} />;
                         <br />
                         <span className="text-white  text-[16px]">Or Browser Featured Model</span>
                         <div className="mt-10 flex justify-center gap-4">
@@ -97,9 +98,8 @@ function Home() {
                         <h3 className="text-3xl font-semibold text-gray-800">
                             Explore Our Premium Brands
                         </h3>
-                        
-                            <ViewAll />
-                        
+
+                        <Link to="/listings"><ViewAll /></Link>
                     </div>
                     <div className="container mx-auto mt-10">
 
@@ -167,7 +167,7 @@ function Home() {
                             Explore All Vehicles
                         </h3>
 
-                        <ViewAll />
+                        <Link to="/listings"><ViewAll /></Link>
                     </div>
                     {/* Tabs lọc */}
                     <div className="flex space-x-4 mb-2">
@@ -286,7 +286,7 @@ function Home() {
                             Latest Blog Posts
                         </h3>
 
-                        <ViewAll />
+                        <Link to="/blog"> <ViewAll /></Link>
                     </div>
                     <section className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 

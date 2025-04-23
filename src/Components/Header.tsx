@@ -1,11 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar } from "antd";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
+import { useAuth } from "../context/auth.context";
 import CartIcon from "./Icons/CartIcon";
 import DeleteIcon from "./Icons/DeleteIcon";
-import MenuIcon from "./Icons/MenuIcon";
-import IncreaseICon from "./Icons/IncreaseICon";
 import DescreaseIcon from "./Icons/DescreaseIcon";
-
+import IncreaseICon from "./Icons/IncreaseICon";
+import MenuIcon from "./Icons/MenuIcon";
 const initialCartItems = [
   { id: 1, name: "VinFast VF7 (Gray)", price: 35000, quantity: 1, image: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/483329Unu/anh-mo-ta.png" },
   { id: 2, name: "VinFast VF9 (Silver)", price: 45000, quantity: 2, image: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/483329Unu/anh-mo-ta.png" },
@@ -128,7 +130,8 @@ export default function Header() {
       </button>
     </div>
   );
-
+  const { user, logout } = useAuth();
+  console.log("user:", user);
   return (
     <>
       <div className={`w-full fixed flex justify-between items-center px-2 py-3 transition-all duration-300 ${isSticky ? "shadow-lg bg-white" : "bg-transparent"}`}>
@@ -144,7 +147,10 @@ export default function Header() {
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `transition duration-300 ${isSticky ? (isActive ? "text-amber-800 font-bold" : "text-gray-700") : (isActive ? "font-bold text-white" : "text-white")}`
+                  `cursor-pointer flex items-center transition duration-300 ${isSticky
+                    ? `${isActive ? "text-amber-800 font-bold" : "text-gray-700"} cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-amber-700 hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+                    : `${isActive ? "font-bold text-white" : "text-white"} hover:font-bold cursor-pointer py-1 relative  after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-slate-900 dark:after:bg-white hover:after:lg:w-full after:lg:h-0.5 after:lg:w-0 text-emerald-light:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300`
+                  }`
                 }
               >
                 {labels[index]}
@@ -170,9 +176,25 @@ export default function Header() {
             )}
           </div>
 
-          <NavLink to="/login" className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700 hover:text-amber-800" : "text-white hover:text-amber-800"}`}>
-            Sign In
-          </NavLink>
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Avatar size={64} icon={<UserOutlined />} />
+              <button
+                onClick={logout}
+                className={`hover:text-amber-800 ${isSticky ? "text-gray-700" : "text-white"}`}
+              >
+                Logout
+
+              </button>
+            </div>
+          ) : (
+            <NavLink
+              to="/login"
+              className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700 hover:text-amber-800" : "text-white hover:text-amber-800"}`}
+            >
+              <Avatar size="large" icon={<UserOutlined />} />
+            </NavLink>
+          )}
         </div>
 
         {/* Mobile */}
