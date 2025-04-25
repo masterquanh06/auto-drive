@@ -18,12 +18,14 @@ export interface LoginResponse {
     name: string;
     email: string;
     role: string;
+    avatar?: string;
   };
 }
+
 export interface User {
   id: number;
   username: string;
   email: string;
   role: string;
-  avatar:string;
+  avatar?: string;
 }

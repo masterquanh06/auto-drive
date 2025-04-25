@@ -1,9 +1,8 @@
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from "@ant-design/icons";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Avatar } from "antd";
+import { Avatar, Dropdown } from "antd";
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router";
-import { useAuth } from "../context/auth.context";
+import { Link, NavLink, useNavigate } from "react-router";
 import { clearCart, fetchCart, removeCartItem, updateCartItemQuantity } from "../services/cartService";
 import { CartItem } from "../types/type";
 import CartIcon from "./Icons/CartIcon";
@@ -11,6 +10,7 @@ import DeleteIcon from "./Icons/DeleteIcon";
 import DescreaseIcon from "./Icons/DescreaseIcon";
 import IncreaseICon from "./Icons/IncreaseICon";
 import MenuIcon from "./Icons/MenuIcon";
+import { appStore } from "../store/user.store";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +18,12 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const { user } = appStore();
+  const isSignined = localStorage.getItem("token");
 
   const cartModalRef = useRef<HTMLDivElement>(null);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { data: cartItems = [], isLoading } = useQuery<CartItem[]>({
     queryKey: ["cart"],
@@ -32,15 +35,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-    // useEffect(() => {
-    //   const handleClickOutside = (event) => {
-    //     if (isCartModalOpen && cartModalRef.current && !cartModalRef.current.contains(event.target)) {
-    //       setIsCartModalOpen(false);
-    //     }
-    //   };
-    //   document.addEventListener("mousedown", handleClickOutside);
-    //   return () => document.removeEventListener("mousedown", handleClickOutside);
-    // }, [isCartModalOpen]);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (isCartModalOpen && cartModalRef.current && !cartModalRef.current.contains(event.target)) {
+  //       setIsCartModalOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, [isCartModalOpen]);
   const updateQuantityMutation = useMutation({
     mutationFn: ({ itemId, delta }: { itemId: number; delta: number }) =>
       updateCartItemQuantity(itemId, delta),
@@ -138,8 +141,20 @@ export default function Header() {
       </div>
     </div>
   );
-  const { user, logout } = useAuth();
-  console.log("user:", user);
+
+
+  const items = [
+    {
+      key: '1',
+      label: 'Thông tin cá nhân',
+      onClick: () => navigate('/profile')
+    },
+    {
+      key: '2',
+      label: 'Đăng xuất',
+    }
+  ];
+
   return (
     <>
       <div className={`w-full fixed top-0 flex justify-between items-center px-2 py-3 transition-all duration-300 z-50 ${isSticky ? "shadow-lg bg-white" : "bg-transparent"}`}>
@@ -186,23 +201,25 @@ export default function Header() {
             )}
           </div>
 
-          {user ? (
-            <div className="flex items-center gap-2">
-              <Avatar size={64} icon={<UserOutlined />} />
-              <button
-                onClick={logout}
-                className={`hover:text-amber-800 ${isSticky ? "text-gray-700" : "text-white"}`}
-              >
-                Logout
-
-              </button>
-            </div>
+          {isSignined ? (
+            <Dropdown menu={{ items }} placement="bottomRight">
+              <Avatar
+                size={32}
+                icon={isSignined ? <img src={user?.avatar} alt="avatar" /> : <UserOutlined />}
+                className={`cursor-pointer ${isSticky ? "bg-gray-700" : "bg-white"}`}
+              />
+            </Dropdown>
           ) : (
             <NavLink
               to="/login"
               className={`cursor-pointer flex items-center ${isSticky ? "text-gray-700 hover:text-amber-800" : "text-white hover:text-amber-800"}`}
             >
-              <Avatar size="large" icon={<UserOutlined />} />
+              <button
+                className={`hover:text-amber-800 ${isSticky ? "text-gray-700" : "text-white"}`}
+              >
+                Login
+
+              </button>
             </NavLink>
           )}
         </div>

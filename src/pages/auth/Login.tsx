@@ -5,33 +5,45 @@ import FbIcon from '../../assets/images/Fb-Icon.jpg';
 import GgIcon from '../../assets/images/Gg-Icon.jpg';
 import { useAuth } from '../../context/auth.context';
 import { useLogin } from '../../hooks/useAuth';
+// import { getProfile } from '../../services/auth.service';
+
 const Login = () => {
   type FieldType = {
     username?: string;
     password?: string;
     remember?: boolean;
   };
-  const { login } = useAuth();
+  // const { login } = useAuth();
   const navigate = useNavigate();
 
   const { mutate: loginMutate, isPending } = useLogin(
-    (data) => {
-      login(
-        {
-          ...data.user,
-          username: data.user.name,
-          avatar: ''
-        },
-        data.token
-      );
+    async (data) => {
+      try {
+        localStorage.setItem('token', data.token);
 
-      localStorage.setItem('token', data.token);
+        // Fetch user profile after successful login
+        // const userProfile = await getProfile();
 
-      console.log('Login success', data);
-      navigate("/");
+        // login(
+        //   {
+        //     id: userProfile.id,
+        //     username: userProfile.username,
+        //     email: userProfile.email,
+        //     role: userProfile.role,
+        //     avatar: userProfile.avatar || ''
+        //   },
+        //   data.token
+        // );
+
+        console.log('Login success');
+        navigate("/");
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        localStorage.removeItem('token');
+      }
     },
     (error) => {
-      console.error('Login error', error);
+      console.error('Login error:', error);
     }
   );
 
@@ -90,7 +102,7 @@ const Login = () => {
 
           <Form.Item>
             <Button
-              
+
               type="primary"
               htmlType="submit"
               size="large"

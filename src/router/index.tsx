@@ -1,4 +1,4 @@
-import {createBrowserRouter, Outlet} from "react-router";
+import { createBrowserRouter, Outlet } from "react-router";
 import Login from "../pages/auth/Login";
 import Home from "../pages/root/Home";
 import SignUp from "../pages/auth/SignUp";
@@ -10,35 +10,33 @@ import ForgotPassword from "../pages/forgotpassword/ForgotPassword";
 import PasswordToken from "../pages/forgotpassword/PasswordToken";
 import ResetPassword from "../pages/forgotpassword/ResetPassword";
 import Cart from "../pages/cart/Cart";
-const AuthLayout = () => {
-    return <Outlet/>;  
-}
+import AuthLayout from "../layouts/AuthLayout";
 export default createBrowserRouter([{
-    element: <AuthLayout/>, children: [{
-        element: <Login/>, path: '/login'
+    element: <AuthLayout />, children: [{
+        element: <Login />, path: '/login'
     }, {
-        element: <SignUp/>, path: '/signup'
-    },{
-        element: <ForgotPassword/>, path: '/forgotpassword'
+        element: <SignUp />, path: '/signup'
     }, {
-        element: <PasswordToken/>, path: '/passwordtoken'
+        element: <ForgotPassword />, path: '/forgotpassword'
     }, {
-        element: <ResetPassword/>, path: '/resetpassword'
+        element: <PasswordToken />, path: '/passwordtoken'
     }, {
-        element:<Cart/>,path:'/cart'
+        element: <ResetPassword />, path: '/resetpassword'
+    }, {
+        element: <Cart />, path: '/cart'
     },
     ]
 }, {
-    element: <MainLayout/>, children: [{
-        element: <Home/>, path: '/',
+    element: <MainLayout />, children: [{
+        element: <Home />, path: '/',
     }, {
-        element: <Home/>, path: '/home',
+        element: <Home />, path: '/home',
     }, {
-        element: <Listings/>, path: '/listings'
+        element: <Listings />, path: '/listings'
     }, {
-        element: <Blog/>, path: '/blog'
+        element: <Blog />, path: '/blog'
     }, {
-        element: <Listings/>, path: '/contact'
+        element: <Listings />, path: '/contact'
     },
 
     ]
