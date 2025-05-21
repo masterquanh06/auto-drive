@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Breadcrumb, Input, Pagination } from "antd";
 import { FuelIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 import Car4 from "../../assets/images/Audi_A6.png";
 import Car10 from "../../assets/images/Audi_RS6.avif";
@@ -64,44 +64,44 @@ function Listings() {
 
   const itemsPerPage = 12;
 
-  useEffect(() => {
-    let filtered = [...vehiclesData];
+  // useEffect(() => {
+  //   let filtered = [...vehiclesData];
 
-    if (filter === "newCars") {
-      filtered = filtered.filter((v) => v.type === "new");
-    } else if (filter === "usedCars") {
-      filtered = filtered.filter((v) => v.type === "used");
-    }
+  //   if (filter === "newCars") {
+  //     filtered = filtered.filter((v) => v.type === "new");
+  //   } else if (filter === "usedCars") {
+  //     filtered = filtered.filter((v) => v.type === "used");
+  //   }
 
-    if (
-      selectedCatetory !== "All Type" &&
-      ["SUV", "Sedan", "Hatchback", "Coupe", "Hybrid"].includes(selectedCatetory)
-    ) {
-      filtered = filtered.filter((v) => v.category === selectedCatetory);
-    }
+  //   if (
+  //     selectedCatetory !== "All Type" &&
+  //     ["SUV", "Sedan", "Hatchback", "Coupe", "Hybrid"].includes(selectedCatetory)
+  //   ) {
+  //     filtered = filtered.filter((v) => v.category === selectedCatetory);
+  //   }
 
-    if (selectedPrice === "From low to high price") {
-      filtered.sort((a, b) => a.price - b.price);
-    } else if (selectedPrice === "From high to low price") {
-      filtered.sort((a, b) => b.price - a.price);
-    }
+  //   if (selectedPrice === "From low to high price") {
+  //     filtered.sort((a, b) => a.price - b.price);
+  //   } else if (selectedPrice === "From high to low price") {
+  //     filtered.sort((a, b) => b.price - a.price);
+  //   }
 
 
-    if (selectedType !== "All Types") {
-      filtered = filtered.filter(
-        (v) => v.type?.toLowerCase() === selectedType.toLowerCase()
-      );
-    }
+  //   if (selectedType !== "All Types") {
+  //     filtered = filtered.filter(
+  //       (v) => v.type?.toLowerCase() === selectedType.toLowerCase()
+  //     );
+  //   }
 
-    if (searchTerm.trim()) {
-      filtered = filtered.filter((v) =>
-        v.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
+  //   if (searchTerm.trim()) {
+  //     filtered = filtered.filter((v) =>
+  //       v.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //   }
 
-    setFilteredVehicles(filtered);
-    setCurrentPage(1);
-  }, [filter, selectedType, searchTerm, category, price, vehiclesData]);
+  //   setFilteredVehicles(filtered);
+  //   setCurrentPage(1);
+  // }, [filter, selectedType, searchTerm, category, price, vehiclesData]);
 
   const handleAddToCart = (vehicle: Vehicle) => {
     addToCartMutation.mutate(vehicle);

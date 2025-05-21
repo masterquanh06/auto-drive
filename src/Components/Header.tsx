@@ -4,13 +4,13 @@ import { Avatar, Dropdown } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { clearCart, fetchCart, removeCartItem, updateCartItemQuantity } from "../services/cartService";
+import { appStore } from "../store/user.store";
 import { CartItem } from "../types/type";
 import CartIcon from "./Icons/CartIcon";
 import DeleteIcon from "./Icons/DeleteIcon";
 import DescreaseIcon from "./Icons/DescreaseIcon";
 import IncreaseICon from "./Icons/IncreaseICon";
 import MenuIcon from "./Icons/MenuIcon";
-import { appStore } from "../store/user.store";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -147,11 +147,14 @@ export default function Header() {
     {
       key: '1',
       label: 'Thông tin cá nhân',
-      onClick: () => navigate('/profile')
     },
     {
       key: '2',
       label: 'Đăng xuất',
+      onClick: () => {
+        localStorage.removeItem("token");
+        navigate("/login");
+      },
     }
   ];
 
