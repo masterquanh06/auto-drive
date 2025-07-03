@@ -1,6 +1,8 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import { Link } from 'react-router';
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Background from '../../assets/images/Background.jpg';
+import { register as registerService } from '../../services/auth.service';
 
 
 const SignUp = () => {
@@ -10,6 +12,30 @@ const SignUp = () => {
     password?: string;
     confirmPassword?: string;
     agree?: boolean;
+  };
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const onFinish = async (values: FieldType) => {
+    setLoading(true);
+    try {
+      await registerService({
+        email: values.email!,
+        username: values.username!,
+        password: values.password!,
+      });
+      message.success('Đăng ký thành công!');
+      setTimeout(() => navigate('/login'), 1000);
+    } catch (error: unknown) {
+      if (error && typeof error === 'object' && 'response' in error) {
+        const err = error as { response?: { data?: { error?: string } } };
+        message.error(err.response?.data?.error || 'Đăng ký thất bại!');
+      } else {
+        message.error('Đăng ký thất bại!');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -22,6 +48,7 @@ const SignUp = () => {
           autoComplete="off"
           className="w-full max-w-md"
           layout="vertical"
+          onFinish={onFinish}
         >
 
           <div className="text-center mb-4">
@@ -102,6 +129,7 @@ const SignUp = () => {
               htmlType="submit"
               size="large"
               className="w-full"
+              loading={loading}
             >
               Đăng ký
             </Button>
